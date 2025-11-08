@@ -1,0 +1,121 @@
+<div class="container py-4 course-detail">
+    <a href="#" class="text-muted mb-3 d-inline-block">&larr; Volver a Mis Cursos</a>
+
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="course-card dashboard-card p-4">
+                <div class="course-border-top detalle-curso"></div>
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <h4 class="fw-bold mb-1">Curso</h4>
+                        <div class="text-muted">Prof. Nombre profesor</div>
+                    </div>
+                </div>
+
+                <div class="row mt-4 course-meta g-2">
+                    <div class="col-4">
+                        <div class="meta-title">Horario</div>
+                        <div class="meta-value">Lun y Mié 10:00-12:00</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="meta-title">Próxima Clase</div>
+                        <div class="meta-value">21/10/2025</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="meta-title">Estudiantes</div>
+                        <div class="meta-value">32</div>
+                    </div>
+                </div>
+
+                <div class="course-progress-bottom mt-4"></div>
+            </div>
+
+            <div class="mt-4 dashboard-card p-3">
+                <div class="tabs d-flex gap-2 mb-3" role="tablist">
+                    <button type="button" class="tab active" role="tab" aria-selected="true"
+                            data-target="materials" aria-controls="materials-panel">Materiales</button>
+                    <button type="button" class="tab" role="tab" aria-selected="false"
+                            data-target="evaluations" aria-controls="evaluations-panel">Evaluaciones</button>
+                </div>
+
+                <div id="materials-panel" class="tab-content" data-tab="materials" role="tabpanel">
+                    <h6 class="fw-bold mb-3">Materiales del Curso</h6>
+                    <div class="materials-list">
+                        <div class="material-item d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <div class="material-icon me-3">
+                                    <i class="bi bi-file-earmark-text-fill"></i>
+                                </div>
+                                <div>
+                                    <div class="material-title">El arte de hablar en publico</div>
+                                    <div class="material-date text-muted small">14/10/2025</div>
+                                </div>
+                            </div>
+                            <div class="material-actions">
+                                <button class="btn btn-link p-0"><i class="bi bi-download"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="material-item d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <div class="material-icon video me-3">
+                                    <i class="bi bi-camera-video-fill"></i>
+                                </div>
+                                <div>
+                                    <div class="material-title">Comunicación efectiva</div>
+                                    <div class="material-date text-muted small">15/10/2025</div>
+                                </div>
+                            </div>
+                            <div class="material-actions">
+                                <button class="btn btn-link p-0"><i class="bi bi-download"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="evaluations-panel" class="tab-content" data-tab="evaluations" role="tabpanel" hidden>
+                    <h6 class="fw-bold mb-3">Evaluaciones</h6>
+                    <div class="evaluations-list">
+                        <div class="evaluation-item d-flex justify-content-between align-items-center p-3 mb-2 bg-light rounded">
+                            <div>
+                                <div class="fw-bold">Simulacro 02</div>
+                                <div class="small text-muted">Fecha: 01/11/2025</div>
+                            </div>
+                            <div class="text-muted small">Pendiente</div>
+                        </div>
+
+                        <div class="evaluation-item d-flex justify-content-between align-items-center p-3 mb-2 bg-light rounded">
+                            <div>
+                                <div class="fw-bold">Simulacro 01</div>
+                                <div class="small text-muted">Fecha: 07/11/2025</div>
+                            </div>
+                            <div class="text-muted small">Publicado: 180 pts</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside class="col-lg-4">
+            <div class="right-stats dashboard-card p-3">
+                <h6 class="fw-bold mb-3">Estadísticas</h6>
+
+                <div class="stat-item d-flex justify-content-between align-items-center mb-2">
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="stat-icon red"><i class="bi bi-file-earmark-text"></i></div>
+                        <div>Materiales</div>
+                    </div>
+                    <div class="badge bg-light text-dark">24</div>
+                </div>
+
+                <div class="stat-item d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="stat-icon blue"><i class="bi bi-people"></i></div>
+                        <div>Compañeros</div>
+                    </div>
+                    <div class="badge bg-light text-dark">32</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>

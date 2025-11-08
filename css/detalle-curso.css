@@ -1,0 +1,106 @@
+/* ...existing code... */
+
+.course-detail a { text-decoration: none; }
+
+.course-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.course-meta .meta-title {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+.course-meta .meta-value {
+    font-weight: 600;
+    color: #111827;
+    margin-top: 6px;
+}
+
+/* Tabs */
+.tabs .tab{
+    background: #f3f4f6;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    color: #374151;
+}
+.tabs .tab.active{
+    background: #ffffff;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+/* Materials list */
+.materials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.material-item{
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 10px;
+    align-items: center;
+}
+.material-item .material-icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF0033;
+    font-size: 18px;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+.material-item .material-icon.video{
+    color: #E11D48;
+    background: rgba(225,29,72,0.06);
+}
+.material-title {
+    font-weight: 600;
+}
+.material-actions i{
+    font-size: 18px;
+    color: #4b5563;
+}
+
+/* Right stats */
+.right-stats .stat-item{
+    padding: 10px;
+    border-radius: 10px;
+    background: #fff8f8;
+    margin-bottom: 10px;
+}
+.right-stats .stat-item .stat-icon{
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.detalle-curso{
+    margin-top: 10px;
+    border-radius: 10px;
+    height: 5px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.detalle-curso{
+    background-color: #0d6efd;
+}
+
+.right-stats .stat-icon.red{ background: #FFEEF0; color: #E11D48; }
+.right-stats .stat-icon.blue{ background: #eef2ff; color: #3730a3; }
+
+@media (max-width: 991px){
+    .course-progress-top, .course-progress-bottom { margin-left: 0; margin-right: 0; }
+    .right-stats { margin-top: 12px; }
+}

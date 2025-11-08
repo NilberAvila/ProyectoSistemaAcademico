@@ -41,6 +41,8 @@ function loadViewScript(viewPath) {
         scriptName = '/js/es-mis-cursos.js'; 
     } else if (viewPath.endsWith('Mensajeria.html')) {
         scriptName = '/js/mensajeria.js'; // Ejemplo: crea este archivo si lo necesitas
+    } else if (viewPath.endsWith('detalles-curso.html')) {
+        scriptName = '/js/detalle-curso.js'; // Ejemplo: crea este archivo si lo necesitas
     }
     if (scriptName) {
         const script = document.createElement('script');

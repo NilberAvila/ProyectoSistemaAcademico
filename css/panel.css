@@ -112,6 +112,127 @@
     color: #4A5565;
 }
 
+.course-border-top {
+    margin-top: 10px;
+    border-radius: 10px;
+    height: 5px;
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#cursos-list .col-12:nth-child(odd) .course-border-top {
+    background-color: #0d6efd;
+}
+
+#cursos-list .col-12:nth-child(even) .course-border-top {
+    background-color: #dc3545;
+}
+
+/* Clases de Hoy — estilo como en el ejemplo */
+.docente-principal .classes-card {
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 0 0 1px rgba(15,23,42,0.03), 0 6px 18px rgba(16,24,40,0.04);
+    overflow: visible;
+}
+
+.docente-principal .classes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+/* cada elemento rosa con barra roja a la izquierda */
+.docente-principal .class-item {
+    position: relative;
+    background: #fff5f6; /* very light pink */
+    border-radius: 8px;
+    padding: 18px 20px 18px 28px; /* espacio interno, deja margen para la barra */
+    overflow: hidden;
+    display: block;
+}
+
+/* barra vertical roja */
+.docente-principal .class-item::before {
+    content: "";
+    position: absolute;
+    left: 12px;              /* separa un poco del borde izquierdo del container */
+    top: 12px;
+    bottom: 12px;
+    width: 6px;
+    background: linear-gradient(180deg,#E7000B,#FF0033);
+    border-radius: 3px;
+}
+
+/* contenido principal */
+.docente-principal .class-main {
+    margin-left: 6px; /* separa texto de la barra */
+}
+
+.docente-principal .class-title {
+    font-weight: 600;
+    color: #0f172b;
+    font-size: 1.02rem;
+    margin-bottom: 8px;
+}
+
+/* meta: hora y estudiantes */
+.docente-principal .class-meta {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+.docente-principal .class-meta .time {
+    color: #6b7280;
+}
+
+/* icono y texto de estudiantes */
+.docente-principal .class-meta .students {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    color: #6b7280;
+}
+
+/* card exterior padding ajustado */
+.docente-principal .classes-card > .classes-list + * { margin-top: 12px; }
+
+/* Quick actions (lado derecho) */
+.docente-principal .quick-actions {
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(15,23,42,0.03);
+}
+
+.docente-principal .btn-action {
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-weight: 600;
+}
+
+.docente-principal .btn-primary {
+    background: #E7000B;
+    border-color: #E7000B;
+    color: #fff;
+}
+
+.docente-principal .btn-outline-secondary {
+    background: #fff;
+    color: #0f172b;
+    border-radius: 10px;
+    border: 1px solid rgba(15,23,42,0.08);
+}
+
+/* Responsive: apilar y ajustar espacios */
+@media (max-width: 991px) {
+    .docente-principal .class-meta { gap: 12px; }
+    .docente-principal .class-item::before { left: 10px; top: 10px; bottom: 10px; }
+}
 
 @media (max-width: 600px){
     .sidebar{

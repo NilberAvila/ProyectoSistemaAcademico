@@ -1,0 +1,198 @@
+.docente-principal .classes-card {
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 0 0 1px rgba(15,23,42,0.03), 0 6px 18px rgba(16,24,40,0.04);
+    overflow: hidden;
+}
+
+.docente-principal .classes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 6px;
+}
+
+.docente-principal .class-item {
+    background: #fff5f6; /* very light pink */
+    border-radius: 6px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.docente-principal .class-item::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 6px;
+    background: linear-gradient(180deg,#E7000B,#FF0033);
+    border-radius: 3px;
+}
+
+.docente-principal .class-main{
+    margin-left: 12px;
+    width: 100%;
+}
+
+.docente-principal .class-title{
+    font-weight: 600;
+    color: #0f172b;
+    margin-bottom: 8px;
+}
+
+.docente-principal .class-meta{
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+.docente-principal .class-meta .time{
+    color: #6b7280;
+}
+
+.docente-principal .class-meta .students{
+    color: #6b7280;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Quick actions card */
+.docente-principal .quick-actions {
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(15,23,42,0.03);
+}
+
+.docente-principal .btn-action {
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-weight: 600;
+}
+
+.docente-principal .btn-primary {
+    background: #E7000B;
+    border-color: #E7000B;
+    color: #fff;
+}
+
+.docente-principal .btn-outline-secondary {
+    background: #fff;
+    color: #0f172b;
+    border-radius: 10px;
+    border: 1px solid rgba(15,23,42,0.08);
+}
+
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+    .docente-principal .class-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
+.docente-principal .classes-card {
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 0 0 1px rgba(15,23,42,0.03), 0 6px 18px rgba(16,24,40,0.04);
+    overflow: hidden;
+}
+
+.docente-principal .classes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 6px;
+}
+
+.docente-principal .class-item {
+    background: #fff5f6; /* very light pink */
+    border-radius: 6px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.docente-principal .class-item::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 6px;
+    background: linear-gradient(180deg,#E7000B,#FF0033);
+    border-radius: 3px;
+}
+
+.docente-principal .class-main{
+    margin-left: 12px;
+    width: 100%;
+}
+
+.docente-principal .class-title{
+    font-weight: 600;
+    color: #0f172b;
+    margin-bottom: 8px;
+}
+
+.docente-principal .class-meta{
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+.docente-principal .class-meta .time{
+    color: #6b7280;
+}
+
+.docente-principal .class-meta .students{
+    color: #6b7280;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Quick actions card */
+.docente-principal .quick-actions {
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(15,23,42,0.03);
+}
+
+.docente-principal .btn-action {
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-weight: 600;
+}
+
+.docente-principal .btn-primary {
+    background: #E7000B;
+    border-color: #E7000B;
+    color: #fff;
+}
+
+.docente-principal .btn-outline-secondary {
+    background: #fff;
+    color: #0f172b;
+    border-radius: 10px;
+    border: 1px solid rgba(15,23,42,0.08);
+}
+
+
+@media (max-width: 767.98px) {
+    .docente-principal .class-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
