@@ -89,7 +89,6 @@
     border-radius: 12px;
     background: #fff;
     transition: .2s;
-    cursor: default; /* agregado: por defecto NO es clickable */
 }
 
 .dashboard-card:hover {
