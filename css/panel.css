@@ -78,6 +78,41 @@
     color: #8b949e;
 }
 
+#main-content{
+    height: 100%;
+    margin-left: 200px;
+    padding: 0px;
+}
+
+.dashboard-card {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    background: #fff;
+    transition: .2s;
+}
+
+.dashboard-card:hover {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-card .title {
+    font-size: 15px;
+    color: #4A5565;
+}
+
+.dashboard-card .value {
+    font-size: 32px;
+    font-weight: 600;
+    margin-top: 6px;
+    color: #0F172B;
+}
+
+.dashboard-card .icon {
+    font-size: 28px;
+    color: #4A5565;
+}
+
+
 @media (max-width: 600px){
     .sidebar{
         width: 60px;
