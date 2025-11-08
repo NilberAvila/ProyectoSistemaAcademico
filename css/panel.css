@@ -89,6 +89,7 @@
     border-radius: 12px;
     background: #fff;
     transition: .2s;
+    cursor: default; /* agregado: por defecto NO es clickable */
 }
 
 .dashboard-card:hover {
@@ -209,24 +210,6 @@
     box-shadow: 0 0 0 1px rgba(15,23,42,0.03);
 }
 
-.docente-principal .btn-action {
-    border-radius: 10px;
-    padding: 12px 16px;
-    font-weight: 600;
-}
-
-.docente-principal .btn-primary {
-    background: #E7000B;
-    border-color: #E7000B;
-    color: #fff;
-}
-
-.docente-principal .btn-outline-secondary {
-    background: #fff;
-    color: #0f172b;
-    border-radius: 10px;
-    border: 1px solid rgba(15,23,42,0.08);
-}
 
 /* Responsive: apilar y ajustar espacios */
 @media (max-width: 991px) {
@@ -257,4 +240,10 @@
         justify-content: center;
         border-top: none;
     }
+}
+
+/* Nueva clase sólo para las que sí navegan */
+.dashboard-card.curso-clickable {
+    cursor: pointer;
+    transition: all 0.3s ease;
 }

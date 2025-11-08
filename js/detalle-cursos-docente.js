@@ -1,5 +1,4 @@
-// /js/detalle-curso.js
-// Función de Ejecución Inmediata (IIFE)
+// ...existing code...
 (function () {
     'use strict';
 
@@ -94,3 +93,4 @@
     }
 
 })(); 
+// ...existing code...

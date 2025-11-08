@@ -47,12 +47,64 @@
         <div class="col-lg-4">
             <div class="dashboard-card p-4 quick-actions">
                 <h6 class="fw-bold mb-3">Acciones Rápidas</h6>
-
                 <div class="d-grid gap-2">
-                    <button class="btn btn-primary btn-action">Crear Nueva Tarea</button>
-                    <button class="btn btn-outline-secondary btn-action">Subir Material</button>
+                    <button class="btn btn-primary btn-action" onclick="abrirModal()">Subir Nuevo </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="modal-overlay" id="modalSubirMaterial">
+        <div class="modal-content-custom">
+            <div class="modal-header-custom">
+                <h3>Subir Nuevo Material</h3>
+                <button class="btn-close-custom" onclick="cerrarModal()">&times;</button>
+            </div>
+
+            <div class="modal-body-custom">
+                <!-- Selección de Curso -->
+                <div class="form-section">
+                    <label class="form-label-custom">Nombre del curso</label>
+                    <select class="select-custom" id="cursoSelect">
+                        <option value="">Seleccionar curso...</option>
+                        <option value="1">Desarrollo Web - 001</option>
+                        <option value="2">Desarrollo Web - 002</option>
+                        <option value="3">Matemáticas Avanzadas - 003</option>
+                    </select>
+                </div>
+
+                <!-- Título del Material -->
+                <div class="form-section">
+                    <label class="form-label-custom">Título del Material</label>
+                    <input type="text" class="input-custom" placeholder="Ingrese el título del material">
+                </div>
+
+                <!-- Tipo de Material -->
+                <div class="form-section">
+                    <label class="form-label-custom">Tipo de Material</label>
+                    <div class="tipo-material-group">
+                        <button class="btn-tipo-material active" data-tipo="pdf">PDF</button>
+                        <button class="btn-tipo-material" data-tipo="video">Video</button>
+                        <button class="btn-tipo-material" data-tipo="ppt">PPT</button>
+                        <button class="btn-tipo-material" data-tipo="word">Word</button>
+                        <button class="btn-tipo-material" data-tipo="excel">Excel</button>
+                    </div>
+                </div>
+
+                <!-- Área de carga de archivo -->
+                <div class="form-section">
+                    <label class="form-label-custom">Archivo</label>
+                    <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
+                        <p>Arrastra un archivo o haz clic para seleccionar</p>
+                        <small>Tamaño máximo: 500 MB</small>
+                    </div>
+                    <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.mp4,.avi">
+                </div>
+            </div>
+
+            <div class="modal-footer-custom">
+                <button class="btn-custom btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+                <button class="btn-custom btn-subir" onclick="cerrarModal()">Subir Material</button>
+            </div>
+        </div>
+    </div>

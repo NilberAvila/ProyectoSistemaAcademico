@@ -1,0 +1,270 @@
+<div class="detalle-curso-container">
+    <!-- Header con botón volver -->
+    <div class="curso-header-nav">
+        <a href="#" class="btn-volver">
+            <i class="bi bi-arrow-left"></i>
+            <span>Volver a Cursos</span>
+        </a>
+    </div>
+
+    <!-- Título del curso y stats -->
+    <div class="curso-title-section">
+        <div>
+            <h1 class="curso-title">Matemática - 1001</h1>
+            <p class="curso-subtitle">Gestiona el contenido de este curso-aula</p>
+        </div>
+        <div class="curso-stats">
+            <div class="stat-box">
+                <i class="bi bi-people"></i>
+                <div>
+                    <span class="stat-label">Estudiantes</span>
+                    <span class="stat-value">5</span>
+                </div>
+            </div>
+            <div class="stat-box">
+                <i class="bi bi-file-text"></i>
+                <div>
+                    <span class="stat-label">Materiales</span>
+                    <span class="stat-value">4</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info cards (Horario, Promedio, Asistencia, ID) -->
+    <div class="curso-info-grid">
+        <div class="info-item">
+            <span class="info-label">Horario</span>
+            <span class="info-value">Lun y Mié 10:00-12:00</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Promedio General</span>
+            <span class="info-value">150</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Asistencia</span>
+            <span class="info-value">92%</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">ID del Curso</span>
+            <span class="info-value">1001</span>
+        </div>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="curso-tabs">
+        <button class="tab-btn active" data-tab="materiales">
+            Material del Curso
+        </button>
+        <button class="tab-btn" data-tab="estudiantes">
+            Estudiantes
+        </button>
+    </div>
+
+    <!-- Tab Content: Materiales -->
+    <div class="tab-content active" id="tab-materiales">
+        <div class="materiales-section">
+            <div class="materiales-header">
+                <h3 class="materiales-title">Materiales del Curso</h3>
+                <button class="btn-subir-material" onclick="abrirModal()">
+                    <i class="bi bi-upload"></i>
+                    <span>Subir Material</span>
+                </button>
+            </div>
+
+            <!-- Grid de materiales (2 columnas) -->
+            <div class="materiales-grid">
+                <!-- Material 1 -->
+                <div class="material-card">
+                    <div class="material-info">
+                        <i class="bi bi-file-earmark-text material-icon"></i>
+                        <div class="material-details">
+                            <div class="material-meta">
+                                <span class="badge-pdf">PDF</span>
+                                <span class="material-size">2.5 MB</span>
+                            </div>
+                            <h4 class="material-name">Iniciación a la matemática universitaria</h4>
+                            <p class="material-date">Subido: 30/9/2025</p>
+                        </div>
+                    </div>
+                    <div class="material-actions">
+                        <button class="btn-icon-action" title="Descargar">
+                            <i class="bi bi-download"></i>
+                        </button>
+                        <button class="btn-icon-action btn-delete" title="Eliminar">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Material 2 -->
+                <div class="material-card">
+                    <div class="material-info">
+                        <i class="bi bi-file-earmark-text material-icon"></i>
+                        <div class="material-details">
+                            <div class="material-meta">
+                                <span class="badge-pdf">PDF</span>
+                                <span class="material-size">2.5 MB</span>
+                            </div>
+                            <h4 class="material-name">Manual para la Matemática Universitaria</h4>
+                            <p class="material-date">Subido: 30/9/2025</p>
+                        </div>
+                    </div>
+                    <div class="material-actions">
+                        <button class="btn-icon-action" title="Descargar">
+                            <i class="bi bi-download"></i>
+                        </button>
+                        <button class="btn-icon-action btn-delete" title="Eliminar">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Material 3 -->
+                <div class="material-card">
+                    <div class="material-info">
+                        <i class="bi bi-file-earmark-text material-icon"></i>
+                        <div class="material-details">
+                            <div class="material-meta">
+                                <span class="badge-ppt">PPT</span>
+                                <span class="material-size">5.2 MB</span>
+                            </div>
+                            <h4 class="material-name">Matemáticas empresariales</h4>
+                            <p class="material-date">Subido: 4/10/2025</p>
+                        </div>
+                    </div>
+                    <div class="material-actions">
+                        <button class="btn-icon-action" title="Descargar">
+                            <i class="bi bi-download"></i>
+                        </button>
+                        <button class="btn-icon-action btn-delete" title="Eliminar">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Material 4 -->
+                <div class="material-card">
+                    <div class="material-info">
+                        <i class="bi bi-file-earmark-text material-icon"></i>
+                        <div class="material-details">
+                            <div class="material-meta">
+                                <span class="badge-pdf">PDF</span>
+                                <span class="material-size">2.5 MB</span>
+                            </div>
+                            <h4 class="material-name">Programación matemática</h4>
+                            <p class="material-date">Subido: 30/9/2025</p>
+                        </div>
+                    </div>
+                    <div class="material-actions">
+                        <button class="btn-icon-action" title="Descargar">
+                            <i class="bi bi-download"></i>
+                        </button>
+                        <button class="btn-icon-action btn-delete" title="Eliminar">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Content: Estudiantes (oculto inicialmente) -->
+    <div class="tab-content" id="tab-estudiantes">
+        <div class="estudiantes-section">
+            <div class="estudiantes-list">
+                <!-- Estudiante 1 -->
+                <div class="estudiante-card d-flex align-items-center justify-content-between p-3 mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="estudiante-avatar">NE</div>
+                        <div>
+                            <div class="estudiante-name">Nombre Estudiante 1</div>
+                            <div class="estudiante-mail text-muted small">estudiante1@email.com</div>
+                            <div class="estudiante-meta text-muted small">Inscrito: 31/8/2025</div>
+                        </div>
+                    </div>
+                    <div class="estudiante-actions d-flex align-items-center gap-3">
+                        <span class="badge badge-activo">Activo</span>
+                    </div>
+                </div>
+
+                <!-- Estudiante 2 -->
+                <div class="estudiante-card d-flex align-items-center justify-content-between p-3 mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="estudiante-avatar">MS</div>
+                        <div>
+                            <div class="estudiante-name">Nombre Estudiante 2</div>
+                            <div class="estudiante-mail text-muted small">estudiante2@email.com</div>
+                            <div class="estudiante-meta text-muted small">Inscrito: 31/8/2025</div>
+                        </div>
+                    </div>
+                    <div class="estudiante-actions d-flex align-items-center gap-3">
+                        <span class="badge badge-activo">Activo</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Estudiante 3 -->
+                <div class="estudiante-card d-flex align-items-center justify-content-between p-3 mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="estudiante-avatar">JC</div>
+                        <div>
+                            <div class="estudiante-name">Nombre Estudiante 3</div>
+                            <div class="estudiante-mail text-muted small">estudiante3@email.com</div>
+                            <div class="estudiante-meta text-muted small">Inscrito: 31/8/2025</div>
+                        </div>
+                    </div>
+                    <div class="estudiante-actions d-flex align-items-center gap-3">
+                        <span class="badge badge-activo">Activo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Subir material -->
+<div class="modal-overlay" id="modalSubirMaterial">
+        <div class="modal-content-custom">
+            <div class="modal-header-custom">
+                <h3>Subir Nuevo Material</h3>
+                <button class="btn-close-custom" onclick="cerrarModal()">&times;</button>
+            </div>
+
+            <div class="modal-body-custom">
+
+                <!-- Título del Material -->
+                <div class="form-section">
+                    <label class="form-label-custom">Título del Material</label>
+                    <input type="text" class="input-custom" placeholder="Ingrese el título del material">
+                </div>
+
+                <!-- Tipo de Material -->
+                <div class="form-section">
+                    <label class="form-label-custom">Tipo de Material</label>
+                    <div class="tipo-material-group">
+                        <button class="btn-tipo-material active" data-tipo="pdf">PDF</button>
+                        <button class="btn-tipo-material" data-tipo="video">Video</button>
+                        <button class="btn-tipo-material" data-tipo="ppt">PPT</button>
+                        <button class="btn-tipo-material" data-tipo="word">Word</button>
+                        <button class="btn-tipo-material" data-tipo="excel">Excel</button>
+                    </div>
+                </div>
+
+                <!-- Área de carga de archivo -->
+                <div class="form-section">
+                    <label class="form-label-custom">Archivo</label>
+                    <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
+                        <p>Arrastra un archivo o haz clic para seleccionar</p>
+                        <small>Tamaño máximo: 500 MB</small>
+                    </div>
+                    <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.mp4,.avi">
+                </div>
+            </div>
+
+            <div class="modal-footer-custom">
+                <button class="btn-custom btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+                <button class="btn-custom btn-subir" onclick="cerrarModal()">Subir Material</button>
+            </div>
+        </div>
+    </div>
