@@ -106,4 +106,46 @@ p {
   transition: 0.3s;
 }
 
+/*ALERTA PERSONALIZADA*/
+.alerta {
+  position: fixed;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 12px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.4s ease forwards;
+}
+
+.alerta-contenido {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alerta.exito {
+  background: linear-gradient(90deg, #6adbc5, #466d59);
+}
+
+.alerta.error {
+  background: linear-gradient(90deg, #e79caa, #991c1c);
+}
+
+.alerta.info {
+  background: linear-gradient(90deg, #98a2d6, #74b9ff);
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translate(-50%, -20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
 

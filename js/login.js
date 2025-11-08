@@ -40,7 +40,7 @@ btnLogin.addEventListener('click', function() {
   const pass = inputContrasena.value.trim();
 
   if (user === '' || pass === '') {
-    alert('Por favor, complete todos los campos.');
+    mostrarAlerta('Por favor, complete todos los campos.', 'info');
     return;
   }
 
@@ -48,14 +48,33 @@ btnLogin.addEventListener('click', function() {
   const existe = lista.find(u => u.usuario === user && u.contrasena === pass);
 
   if (existe) {
-    alert('Inicio de sesión exitoso');
-    if (tipoActual === 'estudiante') {
-      window.location.href = '../../pages/Estudiantes/panel-Estudiante.html';
-
-    } else {
-      window.location.href = '../../pages/Personal/panel.html';
-    }
+    mostrarAlerta('Inicio de sesión exitoso', 'exito');
+    setTimeout(() => {
+      if (tipoActual === 'estudiante') {
+        window.location.href = '../../pages/Estudiantes/panel-Estudiante.html';
+      } else {
+        window.location.href = '../../pages/Personal/panel.html';
+      }
+    }, 1500);
   } else {
-    alert('Usuario o contraseña incorrectos');
+    mostrarAlerta('Usuario o contraseña incorrectos', 'error');
   }
 });
+
+/*ALERTA PERSONALIZADA*/
+  function mostrarAlerta(mensaje, tipo = 'info') {
+  const alerta = document.getElementById('alerta');
+  const texto = document.getElementById('alerta-texto');
+  const icono = document.getElementById('alerta-icono');
+
+  texto.textContent = mensaje;
+
+  alerta.className = `alerta ${tipo}`;
+  alerta.style.display = 'flex';
+
+  // Se oculta automáticamente después de 2.5 segundos
+  setTimeout(() => {
+    alerta.style.display = 'none';
+  }, 2500);
+}
+
