@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Aula Virtual</title>
+    <link rel="stylesheet" href="/css/principalA.css">
+    <link rel="stylesheet" href="/css/principalAdmin.css">
+    <link rel="stylesheet" href="/css/panelEstu.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <nav class="nav flex-column">
+            <div class="sidebar-header p-3 aula-virtual-titulo">
+                <span class="description">Aula Virtual</span>
+            </div>
+        <a href="#" class="nav-link active" data-view="/pages/Administrador/principalA.html">
+            <span class="icon">
+                <i class="bi bi-house"></i>
+            </span>
+            <span class="description">Principal</span>
+        </a>
+            <a href="#" class="nav-link" data-view = "/pages/Administrador/panelEstu.html">
+                <span class="icon">
+                    <i class="bi bi-mortarboard"></i>
+                </span>
+                <span class="description">Estudiantes</span>
+            </a>
+            <a href="#" class="nav-link" data-view = "/pages/Administrador/panelPersonal.html">
+                <span class="icon">
+                    <i class="bi bi-people"></i>
+                </span>
+                <span class="description">Personal</span>
+            </a>              
+            <a href="#" class="nav-link" data-view = "/pages/Administrador/panelEstadisticas.html">
+                <span class="icon">
+                    <i class="bi bi-graph-up"></i>
+                </span>
+                <span class="description"> Estadísticas</span>
+            </a>
+            
+        </nav>
+        <div class="sidebar-profile p-3">
+            <div class="profile-avatar">
+                <span>NA</span>
+            </div>
+            <div class="profile-info">
+                <span class="profile-name">Nombre Admin</span>
+                <span class="profile-role">Administrador</span>
+            </div>
+        </div>
+        </div>
+    </div>
+    <main id="main-content"></main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="/js/panel.js"></script>
+    <script src="/js/session-user.js"></script>
+    <script src="/js/regisEstudiante.js"></script>
+
+</body>
+</html>

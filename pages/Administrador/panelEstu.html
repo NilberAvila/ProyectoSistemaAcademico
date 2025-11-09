@@ -1,0 +1,299 @@
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-start mb-3">
+        <div>
+            <h2 class="fw-bold mb-1">Gestión de Estudiantes</h2>
+            <p class="text-secondary mb-0">Registrar y administrar estudiantes del sistema</p>
+        </div>
+        <button class="btn-registrar" onclick="openModal()">
+            <i class="bi bi-person-plus"></i>
+            Registrar Estudiante
+        </button>
+    </div>
+
+    <div class="dashboard-cards-container mb-4">
+        <div class="dashboard-card">
+            <i class="icon bi bi-people"></i>
+            <span class="title">Total Estudiantes</span>
+            <span class="value">5</span>
+        </div>
+    
+        <div class="dashboard-card">
+            <i class="icon bi bi-person-check"></i>
+            <span class="title">Activos</span>
+            <span class="value">4</span>
+        </div>
+    
+        <div class="dashboard-card">
+            <i class="icon bi bi-gender-male"></i>
+            <span class="title">Masculino</span>
+            <span class="value">3</span>
+        </div>
+    
+        <div class="dashboard-card">
+            <i class="icon bi bi-gender-female"></i>
+            <span class="title">Femenino</span>
+            <span class="value">2</span>
+        </div>
+    </div>
+
+    <!-- Search and Filters -->
+    <div class="search-filters">
+        <div class="search-box">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Buscar por nombre, código, DNI o email...">
+        </div>
+        <button class="filter-btn">
+            <i class="bi bi-funnel"></i>
+            Todos los géneros
+        </button>
+        <button class="filter-btn">
+            Todos los estados
+        </button>
+        <span class="student-count">5 estudiantes</span>
+    </div>
+
+    <!-- Students List -->
+    <div class="students-list">
+        <div class="list-header">
+            Lista de Estudiantes
+        </div>
+
+        <!-- Student 1 -->
+        <div class="student-item">
+            <div class="student-avatar">
+                <i class="bi bi-mortarboard"></i>
+            </div>
+            <div class="student-info">
+                <div class="student-name">Nombre Estudiante</div>
+                <div class="student-badges">
+                    <span class="badge-custom badge-blue">EST2025001</span>
+                    <span class="badge-custom badge-purple">Masculino</span>
+                </div>
+                <div class="student-details">
+                    <span><strong>DNI:</strong> 12345678</span>
+                    <span><strong>Edad:</strong> 20 años</span>
+                    <span><i class="bi bi-envelope"></i> estudiante1@gmail.com</span>
+                    <span><i class="bi bi-phone"></i> 999 000 999</span>
+                    <span>Registrado: 31/8/2025</span>
+                </div>
+            </div>
+            <div class="student-actions">
+                <button class="action-btn" title="Ver">
+                    <i class="bi bi-eye"></i>
+                </button>
+                <button class="action-btn active" title="Activo">
+                    Activo
+                </button>
+                <button class="action-btn" title="Editar">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="action-btn" title="Eliminar">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Student 2 -->
+        <div class="student-item">
+            <div class="student-avatar">
+                <i class="bi bi-mortarboard"></i>
+            </div>
+            <div class="student-info">
+                <div class="student-name">Nombre Estudiante</div>
+                <div class="student-badges">
+                    <span class="badge-custom badge-blue">EST2025002</span>
+                    <span class="badge-custom badge-purple">Femenina</span>
+                </div>
+                <div class="student-details">
+                    <span><strong>DNI:</strong> 23456789</span>
+                    <span><strong>Edad:</strong> 21 años</span>
+                    <span><i class="bi bi-envelope"></i> estudiante2@gmail.com</span>
+                    <span><i class="bi bi-phone"></i> 999 000 999</span>
+                    <span>Registrado: 31/8/2025</span>
+                </div>
+            </div>
+            <div class="student-actions">
+                <button class="action-btn" title="Ver">
+                    <i class="bi bi-eye"></i>
+                </button>
+                <button class="action-btn active" title="Activo">
+                    Activo
+                </button>
+                <button class="action-btn" title="Editar">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="action-btn" title="Eliminar">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Student 3 -->
+        <div class="student-item">
+            <div class="student-avatar">
+                <i class="bi bi-mortarboard"></i>
+            </div>
+            <div class="student-info">
+                <div class="student-name">Nombre Estudiante</div>
+                <div class="student-badges">
+                    <span class="badge-custom badge-blue">EST2025003</span>
+                    <span class="badge-custom badge-purple">Masculino</span>
+                </div>
+                <div class="student-details">
+                    <span><strong>DNI:</strong> 34567890</span>
+                    <span><strong>Edad:</strong> 19 años</span>
+                    <span><i class="bi bi-envelope"></i> estudiante3@gmail.com</span>
+                    <span><i class="bi bi-phone"></i> 999 000 999</span>
+                    <span>Registrado: 31/8/2025</span>
+                </div>
+            </div>
+            <div class="student-actions">
+                <button class="action-btn" title="Ver">
+                    <i class="bi bi-eye"></i>
+                </button>
+                <button class="action-btn active" title="Activo">
+                    Activo
+                </button>
+                <button class="action-btn" title="Editar">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="action-btn" title="Eliminar">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DE REGISTRO -->
+<div class="modal-overlay" id="modalRegistrar">
+    <div class="modal-container">
+        <!-- Header -->
+        <div class="modal-header-custom">
+            <div>
+                <h3>Registrar Nuevo Estudiante</h3>
+                <span class="subtitle-modal">Complete los datos del nuevo estudiante. Se generará automáticamente un código y contraseña.</span>
+            </div>
+            <button class="close-btn" onclick="closeModal()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body-custom">
+           <form id="formRegistrar">
+    
+        <!-- FILA 1: Nombres y Apellidos (lado a lado) -->
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">
+                    Nombres <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="nombres" placeholder="Ingrese nombres" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">
+                    Apellidos <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="apellidos" placeholder="Ingrese apellidos" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">
+                    DNI <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="dni" placeholder="12345678" maxlength="8" pattern="[0-9]{8}" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">
+                    Fecha de Nacimiento <span class="required">*</span>
+                </label>
+                <input type="date" class="form-input" name="fechaNacimiento" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">
+                Género <span class="required">*</span>
+            </label>
+            <select class="form-select" name="genero" required>
+                <option value="">Seleccione género</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">
+                    Celular <span class="required">*</span>
+                </label>
+                <input type="tel" class="form-input" name="celular" placeholder="999 000 999" maxlength="9" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">
+                    Correo Electrónico <span class="required">*</span>
+                </label>
+                <input type="email" class="form-input" name="email" placeholder="ejemplo@correo.com" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">
+                    Departamento
+                </label>
+                <input type="text" class="form-input" name="departamento" placeholder="Cajamarca">
+            </div>
+            <div class="form-group">
+                <label class="form-label">
+                    Provincia
+                </label>
+                <input type="text" class="form-input" name="provincia" placeholder="Cajamarca">
+            </div>
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">
+                    Distrito
+                </label>
+                <input type="text" class="form-input" name="distrito" placeholder="Cajamarca">
+            </div>
+            <div class="form-group">
+                <label class="form-label">
+                    Medio de Conocimiento
+                </label>
+                <select class="form-select" name="medioConocimiento">
+                    <option value="">Seleccione una opción</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Google">Google</option>
+                    <option value="Volantes">Volantes</option>
+                    <option value="Recomendación">Recomendación</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+        </div>
+
+    </form>
+
+        <!-- Footer -->
+        <div class="modal-footer-custom">
+            <button class="btn-cancel" type="button" onclick="closeModal()">
+                Cancelar
+            </button>
+            <button class="btn-submit" type="button" onclick="submitForm()">
+                <i class="bi bi-check-circle"></i>
+                Registrar Estudiante
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Container para notificaciones -->
+<div class="notification-container" id="notificationContainer"></div>

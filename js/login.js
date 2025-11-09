@@ -8,7 +8,6 @@ const inputContrasena = document.getElementById('contrasena');
 
 let tipoActual = 'estudiante';
 
-// Usuarios: personal ahora incluye field role (ej. 'docente', 'admin', ...)
 const usuarios = {
   estudiante: [
     { usuario: 'alumno1', contrasena: '1234', nombres: 'Juan', apellidos: 'Pérez' },
@@ -16,7 +15,8 @@ const usuarios = {
   ],
   personal: [
     { usuario: 'profe1', contrasena: 'admin123', nombres: 'María', apellidos: 'González', role: 'docente' },
-    { usuario: 'admin', contrasena: 'root', nombres: 'Admin', apellidos: 'Sistema', role: 'admin' }
+    { usuario: 'admin', contrasena: 'root', nombres: 'Admin', apellidos: 'Sistema', role: 'administrador' },
+    { usuario: 'coordinador1', contrasena: 'coor12', nombres:'Francisco', role: 'coordinador'}
   ]
 };
 
@@ -25,7 +25,7 @@ estudianteBtn.addEventListener('click', function() {
   estudianteBtn.classList.add('activo');
   personalBtn.classList.remove('activo');
   titulo.textContent = 'Inicio de Sesión - Estudiante';
-  if (subtexto) subtexto.textContent = 'Ingrese su usuario y contraseña de estudiante';
+  if (subtexto) subtexto.textContent = 'Ingrese su usuario y contraseña';
 });
 
 personalBtn.addEventListener('click', function() {
@@ -33,7 +33,7 @@ personalBtn.addEventListener('click', function() {
   personalBtn.classList.add('activo');
   estudianteBtn.classList.remove('activo');
   titulo.textContent = 'Inicio de Sesión - Personal';
-  if (subtexto) subtexto.textContent = 'Ingrese su usuario y contraseña institucional';
+  if (subtexto) subtexto.textContent = 'Ingrese su usuario y contraseña';
 });
 
 btnLogin.addEventListener('click', function() {
@@ -53,17 +53,8 @@ btnLogin.addEventListener('click', function() {
     return;
   }
 
-  // Si es personal, requiere role; por ahora solo permitimos acceso a docente al panel-Docentes
-  if (tipoActual === 'personal') {
-    const role = usuarioObj.role || 'personal';
-    if (role !== 'docente') {
-      // A futuro mostrar opciones para otros roles; por ahora denegar acceso a panel docente
-      mostrarAlerta('Acceso sólo para usuarios con rol Docente. Contacte al administrador.', 'error');
-      return;
-    }
-  }
 
-  // Guardar en sessionStorage
+  // --- Guardar usuario autenticado ---
   const authUser = {
     role: usuarioObj.role || tipoActual,
     usuario: usuarioObj.usuario,
@@ -73,15 +64,29 @@ btnLogin.addEventListener('click', function() {
   sessionStorage.setItem('authUser', JSON.stringify(authUser));
 
   mostrarAlerta('Inicio de sesión exitoso', 'exito');
+
+  // --- Redirección según tipo o rol ---
   setTimeout(() => {
     if (tipoActual === 'estudiante') {
       window.location.href = '../../pages/Estudiantes/panel-Estudiante.html';
     } else {
-      // role == 'docente' sólo entra aquí
-      window.location.href = '../../pages/Docentes/panel-Docentes.html';
+      switch (usuarioObj.role) {
+        case 'docente':
+          window.location.href = '../../pages/Docentes/panel-Docentes.html';
+          break;
+        case 'coordinador':
+          window.location.href = '../../pages/Coordinadores/panel-Coordinador.html';
+          break;
+        case 'administrador':
+          window.location.href = '../../pages/Administrador/panelPrincipal.html';
+          break;
+        default:
+          mostrarAlerta('Rol no reconocido. Contacte al administrador.', 'error');
+      }
     }
   }, 600);
 });
+
 
 /*ALERTA PERSONALIZADA*/
 function mostrarAlerta(mensaje, tipo = 'info') {
