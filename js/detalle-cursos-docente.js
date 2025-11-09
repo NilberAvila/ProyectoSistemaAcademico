@@ -1,36 +1,24 @@
+// ...existing code...
 (function () {
     'use strict';
 
-    console.log('✅ Script detalle-cursos-docente.js cargado');
+    console.log('✅ detalle-curso.js cargado (gestión de pestañas)');
 
-    // Funcionalidad de TABS
-    function initTabs() {
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
+    function findTargetKey(btn) {
+        return btn.getAttribute('data-target') || btn.getAttribute('data-tab') || btn.dataset.tab;
+    }
 
-        tabButtons.forEach(btn => {
-            // Evitar duplicar event listeners
-            if (btn.dataset._tabHandlerAttached === 'true') return;
-            
-            btn.addEventListener('click', function() {
-                const targetTab = this.getAttribute('data-tab');
-                
-                // Remover active de todos los botones y contenidos
-                tabButtons.forEach(b => b.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
-                
-                // Activar el tab seleccionado
-                this.classList.add('active');
-                const targetContent = document.getElementById(`tab-${targetTab}`);
-                if (targetContent) {
-                    targetContent.classList.add('active');
-                }
-            });
-            
-            btn.dataset._tabHandlerAttached = 'true';
-        });
-        
-        console.log(`✅ ${tabButtons.length} tabs inicializados`);
+    function findContentForKey(key) {
+        if (!key) return null;
+        // soporta varios formatos usados en las vistas:
+        // - <div class="tab-content" data-tab="materials">
+        // - <div id="tab-materiales">  (docente)
+        // - <div class="tab-content" id="materials">
+        // - <div id="materials">
+        return document.querySelector(`.tab-content[data-tab="${key}"]`)
+            || document.querySelector(`#tab-${key}`)
+            || document.querySelector(`.tab-content#${key}`)
+            || document.querySelector(`#${key}`);
     }
 
     // Funcionalidad de MODAL
