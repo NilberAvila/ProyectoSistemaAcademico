@@ -5,10 +5,6 @@ function loadView(viewPath) {
     
     console.log(`📄 Cargando vista: ${viewPath}`);
     
-    // Paso 1: Limpiar y eliminar scripts de la vista anterior
-    removeViewScripts(); 
-    
-    // Paso 2: Obtener y cargar el contenido HTML
     fetch(viewPath)
         .then(response => {
             if (!response.ok) {
@@ -17,14 +13,11 @@ function loadView(viewPath) {
             return response.text();
         })
         .then(html => {
-            // Inyectar el HTML en el contenedor principal
             mainContent.innerHTML = html;
             console.log(`✅ HTML cargado para: ${viewPath}`);
             
-            // Paso 3: Esperar un momento antes de cargar el script
-            setTimeout(() => {
-                loadViewScript(viewPath);
-            }, 50);
+            // Cargar el script correspondiente
+            loadViewScript(viewPath);
         })
         .catch(error => {
             console.error("❌ Error al cargar la vista:", error);
@@ -32,64 +25,40 @@ function loadView(viewPath) {
         });
 }
 
-/**
- * Elimina todos los scripts cargados dinámicamente de vistas previas.
- */
 function removeViewScripts() {
-    const scripts = document.querySelectorAll('script[data-view-script="true"]');
-    console.log(`🗑️ Eliminando ${scripts.length} scripts de vistas anteriores`);
-    scripts.forEach(script => {
-        script.remove();
-    });
+    const oldScripts = document.querySelectorAll('script[data-view-script]');
+    oldScripts.forEach(script => script.remove());
+    console.log(`🗑️ Scripts anteriores eliminados: ${oldScripts.length}`);
 }
 
-/**
- * Carga el script JavaScript específico según la vista
- */
 function loadViewScript(viewPath) {
-    let scriptName = '';
+    removeViewScripts();
+
+    const scriptMap = {
+        '/pages/Coordinador/Principal.html': '/js/principal-coordinador.js',
+        '/pages/Coordinador/gestion-cursos.html': '/js/gestion-cursos.js',
+        '/pages/Coordinador/gestion-grupos.html': '/js/gestion-grupos.js',
+        '/pages/Coordinador/gestion-estudiantes.html': '/js/gestion-estudiantes.js',
+        '/pages/Coordinador/horarios.html': '/js/horarios.js',
+        '/pages/Docentes/principal.html': '/js/principal.js',
+        '/pages/Docentes/cursos-aula.html': '/js/principal.js',
+        '/pages/Docentes/detalles-curso.html': '/js/detalle-cursos-docente.js',
+        '/pages/Docentes/Mensajeria.html': '/js/mensajeria.js',
+        '/pages/Estudiantes/principal.html': '/js/principal.js',
+        '/pages/Estudiantes/Mensajeria.html': '/js/mensajeria.js',
+        '/pages/Estudiantes/detalles-curso.html': '/js/detalle-curso.js'
+    };
+
+    const scriptPath = scriptMap[viewPath];
     
-    console.log(`🔍 Analizando ruta para script: ${viewPath}`);
-    
-    // Normalizar la ruta para comparación
-    const normalizedPath = viewPath.toLowerCase();
-    
-    // Mapeo de vistas a sus scripts correspondientes
-    if (normalizedPath.includes('mis-cursos')) {
-        scriptName = '/js/es-mis-cursos.js'; 
-    } else if (normalizedPath.includes('mensajeria')) {
-        scriptName = '/js/mensajeria.js';
-    } else if (normalizedPath.includes('detalle') && normalizedPath.includes('curso')) {
-        // Para cualquier vista de detalle de curso (docente o estudiante)
-        scriptName = '/js/detalle-cursos-docente.js';
-    } else if (normalizedPath.includes('principal')) {
-        scriptName = '/js/principal.js';
-    } else if (normalizedPath.includes('cursos-aula')) {
-        // Si tienes un script específico para la lista de cursos
-        // scriptName = '/js/cursos-aula.js';
-        console.log('ℹ️ Vista de cursos-aula (sin script específico)');
-    }
-    
-    if (scriptName) {
-        console.log(`📦 Intentando cargar script: ${scriptName}`);
-        
+    if (scriptPath) {
+        console.log(`📜 Cargando script: ${scriptPath}`);
         const script = document.createElement('script');
-        script.src = scriptName;
+        script.src = scriptPath;
         script.dataset.viewScript = 'true';
-        script.async = false;
-        
-        script.onload = () => {
-            console.log(`✅ Script cargado exitosamente: ${scriptName}`);
-        };
-        
-        script.onerror = () => {
-            console.error(`❌ Error 404: No se encontró el archivo ${scriptName}`);
-            console.error(`   Verifica que el archivo exista en la ruta correcta`);
-        };
-        
+        script.onload = () => console.log(`✅ Script cargado: ${scriptPath}`);
+        script.onerror = () => console.error(`❌ Error al cargar script: ${scriptPath}`);
         document.body.appendChild(script);
-    } else {
-        console.log(`ℹ️ No hay script específico configurado para: ${viewPath}`);
     }
 }
 

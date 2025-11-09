@@ -1,0 +1,162 @@
+<div class="container-fluid py-4">
+    <!-- Header -->
+    <div class="mb-4">
+        <h2 class="fw-bold mb-2">Gestión de Cursos</h2>
+        <p class="text-muted">Crear y administrar cursos del sistema</p>
+    </div>
+
+    <!-- Cards de Estadísticas -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-small">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="stat-label-small mb-1">Total Cursos</p>
+                        <h3 class="stat-value-small mb-0">5</h3>
+                    </div>
+                    <div class="stat-icon-small">
+                        <i class="bi bi-book"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-small">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="stat-label-small mb-1">Activos</p>
+                        <h3 class="stat-value-small mb-0">4</h3>
+                    </div>
+                    <div class="stat-icon-small">
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-small">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="stat-label-small mb-1">Inactivos</p>
+                        <h3 class="stat-value-small mb-0">1</h3>
+                    </div>
+                    <div class="stat-icon-small">
+                        <i class="bi bi-x-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-small">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="stat-label-small mb-1">Capacidad Total</p>
+                        <h3 class="stat-value-small mb-0">155</h3>
+                    </div>
+                    <div class="stat-icon-small">
+                        <i class="bi bi-people"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra de Búsqueda y Filtros -->
+    <div class="card border-0 shadow-sm mb-3">
+        <div class="card-body p-3">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-3">
+                    <button class="btn btn-danger w-100" onclick="abrirModalNuevoCurso()">
+                        <i class="bi bi-plus-circle me-2"></i>Nuevo Curso
+                    </button>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="bi bi-search"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0 ps-0" 
+                               placeholder="Buscar por nombre" id="searchInput">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="filterCategoria">
+                        <option value="">Todas las categorías</option>
+                        <option>Desarrollo Web</option>
+                        <option>Ciencias Exactas</option>
+                        <option>Redes</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-select" id="filterEstado">
+                        <option value="">Todos</option>
+                        <option>Activo</option>
+                        <option>Inactivo</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lista de Cursos -->
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+            <h5 class="fw-bold mb-3">Lista de Cursos</h5>
+            
+            <div id="cursosListContainer">
+                <!-- Los cursos se cargarán aquí dinámicamente -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Nuevo Curso -->
+<div class="modal fade" id="modalNuevoCurso" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Nuevo Curso</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formNuevoCurso">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Código del Curso</label>
+                            <input type="text" class="form-control" placeholder="Ej: DW-001" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Nombre del Curso</label>
+                            <input type="text" class="form-control" placeholder="Ej: Desarrollo Web" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Descripción</label>
+                            <textarea class="form-control" rows="3" 
+                                      placeholder="Descripción breve del curso"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Categoría</label>
+                            <select class="form-select" required>
+                                <option value="">Seleccionar...</option>
+                                <option>Desarrollo Web</option>
+                                <option>Ciencias Exactas</option>
+                                <option>Redes</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Capacidad</label>
+                            <input type="number" class="form-control" placeholder="35" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarCurso()">Guardar Curso</button>
+            </div>
+        </div>
+    </div>
+</div>

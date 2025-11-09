@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Coordinador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/panel.css">
+    <link rel="stylesheet" href="/css/principal-coordinador.css">
+    <link rel="stylesheet" href="/css/gestion-cursos.css">
+    <link rel="stylesheet" href="/css/gestion-grupos.css">
+    <link rel="stylesheet" href="/css/gestion-estudiante.css">
+    <link rel="stylesheet" href="/css/horarios.css">
+</head>
+<body>
+    <div class="sidebar">
+        <nav class="nav flex-column">
+            <div class="sidebar-header p-3 aula-virtual-titulo">
+                <span class="description">Aula Virtual</span>
+            </div>
+            <a href="#" class="nav-link active" data-view = "/pages/Coordinador/Principal.html">
+                <span class="icon">
+                    <i class="bi bi-house"></i>
+                </span>
+                <span class="description">Principal</span>
+            </a>
+            <a href="#" class="nav-link" data-view = "/pages/Coordinador/gestion-cursos.html">
+                <span class="icon">
+                    <i class="bi bi-people"></i>
+                </span>
+                <span class="description">Gestion de Cursos</span>
+            </a>
+            <a href="#" class="nav-link" data-view = "/pages/Coordinador/gestion-grupos.html">
+                <span class="icon">
+                    <i class="bi bi-people"></i>
+                </span>
+                <span class="description">Gestion de Grupos</span>
+            </a>
+            <a href="#" class="nav-link" data-view = "/pages/Coordinador/gestion-estudiantes.html">
+                <span class="icon">
+                    <i class="bi bi-person-fill-add"></i>
+                </span>
+                <span class="description">Inscripcione Estudiantes</span>
+            </a>
+            <a href="#" class="nav-link" data-view = "/pages/Coordinador/horarios.html">
+                <span class="icon">
+                    <i class= "bi bi-calendar3-week"></i>
+                </span>
+                <span class="description">Horarios</span>
+            </a>
+        </nav>
+        <div class="sidebar-profile p-3">
+            <div class="profile-avatar">
+                <span>NC</span>
+            </div>
+            <div class="profile-info">
+                <span class="profile-name">Nombre Coordinador</span>
+                <span class="profile-role">Coordinador</span>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <!-- El contenido se carga aquí dinámicamente -->
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/panel.js"></script>
+    <script src="/js/session-user.js"></script>
+</body>
+</html>

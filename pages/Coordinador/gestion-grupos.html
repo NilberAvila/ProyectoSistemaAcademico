@@ -1,0 +1,226 @@
+<div class="container-fluid py-4">
+    <!-- Header -->
+    <div class="mb-4">
+        <h2 class="fw-bold mb-2">Gestión de Grupos</h2>
+        <p class="text-muted">Administrar grupos de cursos con horarios independientes</p>
+    </div>
+
+    <!-- Cards de Estadísticas -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-small">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="stat-label-small mb-1">Total Grupos</p>
+                        <h3 class="stat-value-small mb-0">5</h3>
+                    </div>
+                    <div class="stat-icon-small">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-small">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="stat-label-small mb-1">Grupos Activos</p>
+                        <h3 class="stat-value-small mb-0">4</h3>
+                    </div>
+                    <div class="stat-icon-small">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-small">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="stat-label-small mb-1">Estudiantes Totales</p>
+                        <h3 class="stat-value-small mb-0">113</h3>
+                    </div>
+                    <div class="stat-icon-small">
+                        <i class="bi bi-person-badge-fill"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-small">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="stat-label-small mb-1">Cupos Disponibles</p>
+                        <h3 class="stat-value-small mb-0">47</h3>
+                    </div>
+                    <div class="stat-icon-small">
+                        <i class="bi bi-patch-check-fill"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra de Búsqueda y Filtros -->
+    <div class="card border-0 shadow-sm mb-3">
+        <div class="card-body p-3">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-3">
+                    <button class="btn btn-danger w-100" onclick="abrirModalNuevoGrupo()">
+                        <i class="bi bi-plus-circle me-2"></i>Nuevo Grupo
+                    </button>
+                </div>
+                <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="bi bi-search"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0 ps-0" 
+                               placeholder="Buscar por curso, grupo o docente..." id="searchInput">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-select" id="filterCurso">
+                        <option value="">Todos los cursos</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-select" id="filterEstado">
+                        <option value="">Todos</option>
+                        <option>Activo</option>
+                        <option>Inactivo</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lista de Grupos por Curso -->
+    <div id="gruposListContainer">
+        <!-- Los grupos se cargarán aquí dinámicamente -->
+    </div>
+</div>
+
+<!-- Modal Nuevo Grupo -->
+<div class="modal fade" id="modalNuevoGrupo" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Nuevo Grupo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formNuevoGrupo">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Curso</label>
+                            <select class="form-select" required>
+                                <option value="">Seleccionar curso...</option>
+                                <option>DW-001 - Desarrollo Web</option>
+                                <option>FIS-005 - Física</option>
+                                <option>BD-002 - Base de Datos</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Nombre del Grupo</label>
+                            <input type="text" class="form-control" placeholder="Ej: Grupo A" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Docente/Tutor</label>
+                            <select class="form-select" required>
+                                <option value="">Seleccionar docente...</option>
+                                <option>Juan Pérez</option>
+                                <option>María García</option>
+                                <option>Carlos López</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Capacidad Máxima</label>
+                            <input type="number" class="form-control" placeholder="35" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Turno</label>
+                            <select class="form-select" required>
+                                <option value="">Seleccionar...</option>
+                                <option>Mañana</option>
+                                <option>Tarde</option>
+                                <option>Noche</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Aula</label>
+                            <input type="text" class="form-control" placeholder="Ej: Aula A-101" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Horario</label>
+                            <textarea class="form-control" rows="2" 
+                                      placeholder="Ej: Lunes y Miércoles 08:00-10:00"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarGrupo()">Crear Grupo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Editar Grupo -->
+<div class="modal fade" id="modalEditarGrupo" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Editar Grupo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formEditarGrupo">
+                    <!-- Mismo contenido que formNuevoGrupo -->
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Curso</label>
+                            <input type="text" class="form-control" id="editCurso" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Nombre del Grupo</label>
+                            <input type="text" class="form-control" id="editNombre" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Docente/Tutor</label>
+                            <select class="form-select" id="editDocente" required>
+                                <option>Juan Pérez</option>
+                                <option>María García</option>
+                                <option>Carlos López</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Capacidad Máxima</label>
+                            <input type="number" class="form-control" id="editCapacidad" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Turno</label>
+                            <select class="form-select" id="editTurno" required>
+                                <option>Mañana</option>
+                                <option>Tarde</option>
+                                <option>Noche</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Aula</label>
+                            <input type="text" class="form-control" id="editAula" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="actualizarGrupo()">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

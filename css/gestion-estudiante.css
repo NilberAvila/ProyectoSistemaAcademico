@@ -1,0 +1,231 @@
+/* ===== CONTENEDOR DE CURSO ===== */
+.curso-matricula-container {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.curso-matricula-header {
+    background: #f8f9fa;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.curso-matricula-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin: 0;
+}
+
+.grupo-matricula-item {
+    padding: 1.5rem;
+    border-bottom: 1px solid #f8f9fa;
+    transition: background-color 0.2s ease;
+}
+
+.grupo-matricula-item:last-child {
+    border-bottom: none;
+}
+
+.grupo-matricula-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* ===== HEADER DEL GRUPO ===== */
+.grupo-matricula-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.grupo-info-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.grupo-icon-matricula {
+    width: 50px;
+    height: 50px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.grupo-icon-matricula i {
+    font-size: 1.5rem;
+    color: #495057;
+}
+
+.grupo-nombre-matricula {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin: 0 0 0.5rem 0;
+}
+
+.badge-matriculados {
+    background: #dc3545;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border-radius: 6px;
+    margin-right: 0.5rem;
+}
+
+.badge-cupos {
+    background: #dc3545;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border-radius: 6px;
+}
+
+.grupo-detalles-matricula {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.9375rem;
+    color: #495057;
+}
+
+.grupo-detalle-label-mat {
+    font-weight: 500;
+    color: #1a1a2e;
+}
+
+/* ===== LISTA DE ESTUDIANTES MATRICULADOS ===== */
+.estudiantes-section {
+    margin-top: 1rem;
+}
+
+.estudiantes-section-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.75rem;
+}
+
+.estudiante-item {
+    background: #fff5f5;
+    border: 1px solid #ffe0e0;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.estudiante-item:hover {
+    background: #ffebeb;
+    border-color: #ffc9c9;
+}
+
+.estudiante-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.estudiante-matricula-badge {
+    background: #6c757d;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.625rem;
+    border-radius: 4px;
+}
+
+.estudiante-nombre {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #1a1a2e;
+    margin: 0;
+}
+
+.btn-retirar {
+    background: white;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    font-size: 0.8125rem;
+    padding: 0.375rem 0.875rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-retirar:hover {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-matricular-grupo {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-matricular-grupo:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* ===== MODAL BÚSQUEDA ===== */
+.list-group-item-estudiante {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.list-group-item-estudiante:hover {
+    background-color: #f8f9fa;
+}
+
+.list-group-item-estudiante.selected {
+    background-color: #e7f3ff;
+    border-color: #0d6efd;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .grupo-matricula-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .grupo-detalles-matricula {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .estudiante-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .btn-retirar {
+        width: 100%;
+    }
+}
