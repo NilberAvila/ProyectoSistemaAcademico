@@ -1337,6 +1337,18 @@ main[id] {
    MÓVILES (menos de 768px)
 ============================================ */
 @media (max-width: 767px) {
+  /* Centrar logo en móviles */
+  .navbar .container-fluid {
+    justify-content: center !important;
+  }
+
+  /* Opcional: ocultar elementos que ocupan espacio.
+     Si prefieres mantenerlos, coméntalos o ajusta según prefieras. */
+
+  .logo-principal {
+    margin: 0;
+    display: block;
+  }
     
     /* EQUIPO DE TRABAJO */
     .equipo-section {
@@ -1492,8 +1504,8 @@ main[id] {
     /* SECCIÓN CONTACTO */
     .contact-section {
         padding: 30px 10px !important;
+        
     }
-    
     .contact-title {
         font-size: 1.75rem !important;
     }

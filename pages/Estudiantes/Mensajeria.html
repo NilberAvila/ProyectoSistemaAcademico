@@ -1,149 +1,85 @@
 <div class="messaging-container">
+    <!-- Sidebar Izquierdo: Lista de Conversaciones -->
     <div class="conversations-sidebar">
         <div class="sidebar-header">
-            <h5>Mensajería</h5>
-            <button class="btn-nuevo">Nuevo</button>
+            <h5 class="mb-0">Mensajería</h5>
+            <button class="btn btn-dark btn-sm btn-nuevo">Nuevo</button>
         </div>
 
+        <!-- Buscador -->
         <div class="search-box">
-            <div class="search-input-wrapper">
-                <i class="bi bi-search"></i>
-                <input type="text" placeholder="Buscar conversaciones...">
-            </div>
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Buscar conversaciones...">
         </div>
 
+        <!-- Lista de Conversaciones (Se llenará dinámicamente) -->
         <div class="conversations-list">
-            <a href="#" class="conversation-item active" data-chat-id="chat1">
-                <div class="avatar" data-name="Nombre Chat 1">
-                    <span class="status-dot"></span>
-                    NC
-                </div>
-                <div class="conversation-info">
-                    <div class="conversation-header">
-                        <h6 class="conversation-name">Nombre Chat</h6>
-                        <span class="conversation-time unread">10:30</span>
-                    </div>
-                    <p class="conversation-subject">Rol</p>
-                    <div class="conversation-footer">
-                        <span class="conversation-preview">El proyecto se ve muy bie...</span>
-                        <span class="unread-badge">2</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="conversation-item" data-chat-id="chat2">
-                <div class="avatar" data-name="Nombre Chat 2">NC</div>
-                <div class="conversation-info">
-                    <div class="conversation-header">
-                        <h6 class="conversation-name">Nombre Chat 2</h6>
-                        <span class="conversation-time">Ayer</span>
-                    </div>
-                    <p class="conversation-subject">Rol</p>
-                    <div class="conversation-footer">
-                        <span class="conversation-preview">Recuerda que el examen...</span>
-                        <span class="unread-badge">1</span>
-                    </div>
-                </div>
-            </a>
+            <!-- Las conversaciones se cargarán aquí con JavaScript -->
         </div>
     </div>
 
+    <!-- Área Principal del Chat -->
     <div class="chat-area">
+        <!-- Header del Chat -->
         <div class="chat-header">
             <button class="btn-back-mobile">
                 <i class="bi bi-arrow-left"></i>
             </button>
-            <div class="avatar" data-name="Nombre Chat 1">
-                <span class="status-dot"></span>
-                NC
-            </div>
+            <div class="avatar">NC</div>
             <div class="chat-header-info">
-                <h6>Nombre Chat</h6>
-                <small>Rol</small>
+                <h6>Selecciona una conversación</h6>
+                <small>Para comenzar a chatear</small>
             </div>
         </div>
 
+        <!-- Mensajes del Chat (Se llenará dinámicamente) -->
         <div class="chat-messages">
-            <!-- Los mensajes se cargan dinámicamente con JavaScript -->
+            <!-- Los mensajes se cargarán aquí con JavaScript -->
         </div>
 
-        <div class="chat-input-area">
-            <div class="input-wrapper">
-                <button class="btn-attachment">
-                    <i class="bi bi-paperclip"></i>
-                </button>
-                <input type="text" class="message-input" placeholder="Escribe un mensaje...">
-                <button class="btn-send">
-                    <i class="bi bi-send-fill"></i>
-                </button>
-            </div>
+        <!-- Input para escribir mensaje -->
+        <div class="chat-input">
+            <button class="btn-attachment">
+                <i class="bi bi-paperclip"></i>
+            </button>
+            <input type="text" class="message-input" placeholder="Escribe un mensaje...">
+            <button class="btn-send">
+                <i class="bi bi-send-fill"></i>
+            </button>
         </div>
     </div>
 </div>
 
-<!-- Modal Nuevo Mensaje -->
+<!-- Modal: Nuevo Mensaje -->
 <div class="modal-overlay" id="modalNuevoMensaje">
-    <div class="modal-nuevo-mensaje">
+    <div class="modal-content-nuevo">
         <div class="modal-header-nuevo">
             <h5>Nuevo Mensaje</h5>
-            <button class="btn-close-modal">
-                <i class="bi bi-x-lg"></i>
-            </button>
+            <button class="btn-close-modal">&times;</button>
         </div>
-        <p class="modal-subtitle">Selecciona un estudiante para iniciar una conversación</p>
-        
-        <div class="modal-body">
-            <label>Destinatario</label>
-            
-            <!-- Búsqueda en el modal -->
-            <div class="search-input-wrapper mb-3">
+
+        <div class="modal-body-nuevo">
+            <!-- Buscador de destinatarios -->
+            <div class="search-destinatarios">
                 <i class="bi bi-search"></i>
                 <input type="text" id="searchDestinatarios" placeholder="Buscar estudiante...">
             </div>
-            
-            <div class="destinatarios-list">
-                <div class="destinatario-item" data-student-id="chat3" data-student-name="Nombre Estudiante 1" data-student-course="Desarrollo Web - Aula A">
-                    <div class="avatar-circle">E1</div>
-                    <div class="destinatario-info">
-                        <div class="destinatario-nombre">Nombre Estudiante 1</div>
-                        <div class="destinatario-curso">Desarrollo Web - Aula A</div>
-                    </div>
-                </div>
-                
-                <div class="destinatario-item" data-student-id="chat4" data-student-name="Nombre Estudiante 2" data-student-course="Matemáticas Avanzadas - Aula B">
-                    <div class="avatar-circle">E2</div>
-                    <div class="destinatario-info">
-                        <div class="destinatario-nombre">Nombre Estudiante 2</div>
-                        <div class="destinatario-curso">Matemáticas Avanzadas - Aula B</div>
-                    </div>
-                </div>
-                
-                <div class="destinatario-item" data-student-id="chat5" data-student-name="Nombre Estudiante 3" data-student-course="Desarrollo Web - Aula B">
-                    <div class="avatar-circle">E3</div>
-                    <div class="destinatario-info">
-                        <div class="destinatario-nombre">Nombre Estudiante 3</div>
-                        <div class="destinatario-curso">Desarrollo Web - Aula B</div>
-                    </div>
-                </div>
 
-                <div class="destinatario-item" data-student-id="chat6" data-student-name="Nombre Estudiante 4" data-student-course="Base de Datos - Aula C">
-                    <div class="avatar-circle">E4</div>
-                    <div class="destinatario-info">
-                        <div class="destinatario-nombre">Nombre Estudiante 4</div>
-                        <div class="destinatario-curso">Base de Datos - Aula C</div>
-                    </div>
-                </div>
+            <!-- Lista de Destinatarios (Se llenará dinámicamente) -->
+            <div class="destinatarios-list">
+                <!-- Los estudiantes se cargarán aquí con JavaScript -->
             </div>
 
+            <!-- Mensaje cuando no hay resultados -->
             <div class="no-results-modal" style="display: none;">
-                <i class="bi bi-person-x" style="font-size: 40px; color: #6c757d;"></i>
+                <i class="bi bi-person-x"></i>
                 <p>No se encontraron estudiantes</p>
             </div>
         </div>
-        
+
         <div class="modal-footer-nuevo">
-            <button class="btn-cancelar">Cancelar</button>
-            <button class="btn-iniciar" disabled>Iniciar Conversación</button>
+            <button class="btn btn-secondary btn-cancelar">Cancelar</button>
+            <button class="btn btn-primary btn-iniciar" disabled>Iniciar Conversación</button>
         </div>
     </div>
 </div>
