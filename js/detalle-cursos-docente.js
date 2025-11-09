@@ -464,10 +464,10 @@ console.log('🔥 SCRIPT DETALLE-CURSO INICIADO');
                             <small class="text-muted">Subido: ${material.fecha}</small>
                             <div class="mt-3 d-flex gap-2">
                                 <button class="btn btn-sm btn-outline-primary btn-descargar" data-id="${material.id}">
-                                    <i class="bi bi-download"></i> Descargar
+                                    <i class="bi bi-download"></i>
                                 </button>
                                 <button class="btn btn-sm btn-outline-danger btn-eliminar" data-id="${material.id}" data-nombre="${material.nombre}">
-                                    <i class="bi bi-trash"></i> Eliminar
+                                    <i class="bi bi-trash"></i>
                                 </button>
                             </div>
                         </div>
