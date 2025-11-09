@@ -1,0 +1,45 @@
+<div class="estadisticas-container">
+    <div class="estadisticas-header">
+        <h2 class="titulo-estadisticas">Estadísticas</h2>
+        <p class="subtitulo-estadisticas">Análisis y métricas del sistema</p>
+    </div>
+
+    <div class="cards-resumen">
+        <div class="card-resumen">
+            <i class="icon bi bi-people"></i>
+            <div class="card-info">
+                <span class="card-titulo">Total Usuarios</span>
+                <span class="card-numero" id="num-usuarios">0</span>
+            </div>
+        </div>
+    
+        <div class="card-resumen">
+            <i class="icon bi bi-journal-bookmark"></i>
+            <div class="card-info">
+                <span class="card-titulo">Cursos Activos</span>
+                <span class="card-numero" id="num-cursos">0</span>
+            </div>
+        </div>
+    
+        <div class="card-resumen">
+            <i class="icon bi bi-graph-up-arrow"></i>
+            <div class="card-info">
+                <span class="card-titulo">Asistencia Promedio</span>
+                <span class="card-numero" id="num-asistencia">0%</span>
+            </div>
+        </div>
+    
+        <div class="card-resumen">
+            <i class="icon bi bi-bar-chart"></i>
+            <div class="card-info">
+                <span class="card-titulo">Promedio General</span>
+                <span class="card-numero" id="num-promedio">0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="grafico-contenedor">
+        <div class="grafico-titulo">Inscripciones por Mes</div>
+        <canvas id="inscripcionesChart"></canvas>
+    </div>
+</div>

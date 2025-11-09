@@ -1,0 +1,270 @@
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-start mb-3">
+        <div>
+            <h2 class="fw-bold mb-1">Gestión de Personal</h2>
+            <p class="text-secondary mb-0">Registrar y dar seguimiento al personal del sistema</p>
+        </div>
+        <button class="btn-registrar" onclick="openModal()">
+            <i class="bi bi-person-plus"></i>
+            Registrar Personal
+        </button>
+    </div>
+
+    <div class="dashboard-cards-container mb-4">
+        <div class="dashboard-card">
+            <i class="icon bi bi-people"></i>
+            <span class="title">Total de Personal</span>
+            <span class="value">14</span>
+        </div>
+    
+        <div class="dashboard-card">
+            <i class="icon bi bi-person"></i>
+            <span class="title">Docente</span>
+            <span class="value">8</span>
+        </div>
+    
+        <div class="dashboard-card">
+            <i class="icon bi bi-person"></i>
+            <span class="title">Coordinadores</span>
+            <span class="value">4</span>
+        </div>
+    
+        <div class="dashboard-card">
+            <i class="icon bi bi-person"></i>
+            <span class="title">Administrativos</span>
+            <span class="value">2</span>
+        </div>
+    </div>
+
+    <!-- Search and Filters -->
+    <div class="search-filters">
+        <div class="search-box">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Buscar por nombre, código, DNI o email...">
+        </div>
+        <button class="filter-btn">
+            <i class="bi bi-funnel"></i>
+            Por roles
+        </button>
+        <button class="filter-btn">
+            Todos los estados
+        </button>
+        <span class="student-count">5 estudiantes</span>
+    </div>
+
+    <!-- Students List -->
+    <div class="students-list">
+        <div class="list-header">
+            Lista de Personal
+        </div>
+
+        <!-- Docente 1 -->
+        <div class="docente-item">
+            <div class="docente-avatar">
+                <i class="bi bi-mortarboard"></i>
+            </div>
+            <div class="docente-info">
+                <div class="docente-name">Nombre Docente </div>
+                <div class="docente-badges">
+                    <span class="badge-custom badge-blue">DC001</span>
+                    <span class="badge-custom badge-purple">Docente</span>
+                </div>
+                <div class="docente-details">
+                    <span><strong>DNI:</strong> 12345678</span>
+                    <span><strong>Edad:</strong> 30 años</span>
+                    <span><i class="bi bi-envelope"></i> docente@gmail.com</span>
+                    <span><i class="bi bi-phone"></i> 999 000 999</span>
+                </div>
+            </div>
+            <div class="docente-actions">
+                <button class="action-btn" title="Ver">
+                    <i class="bi bi-eye"></i>
+                </button>
+                <button class="action-btn active" title="Activo">
+                    Activo
+                </button>
+                <button class="action-btn" title="Editar">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="action-btn" title="Eliminar">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Student 2 -->
+        <div class="docente-item">
+            <div class="docente-avatar">
+                <i class="bi bi-mortarboard"></i>
+            </div>
+            <div class="docente-info">
+                <div class="docente-name">Nombre Coordinador</div>
+                <div class="docente-badges">
+                    <span class="badge-custom badge-blue">CO001</span>
+                    <span class="badge-custom badge-purple">Coordinador</span>
+                </div>
+                <div class="docente-details">
+                    <span><strong>DNI:</strong> 23456789</span>
+                    <span><strong>Edad:</strong> 31 años</span>
+                    <span><i class="bi bi-envelope"></i> coordinador@gmail.com</span>
+                    <span><i class="bi bi-phone"></i> 999 000 999</span>
+                </div>
+            </div>
+            <div class="docente-actions">
+                <button class="action-btn" title="Ver">
+                    <i class="bi bi-eye"></i>
+                </button>
+                <button class="action-btn active" title="Activo">
+                    Activo
+                </button>
+                <button class="action-btn" title="Editar">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="action-btn" title="Eliminar">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="docente-item">
+            <div class="docente-avatar">
+                <i class="bi bi-mortarboard"></i>
+            </div>
+            <div class="docente-info">
+                <div class="docente-name">Nombre Administrativo </div>
+                <div class="docente-badges">
+                    <span class="badge-custom badge-blue">ADO001</span>
+                    <span class="badge-custom badge-purple">Administrativo</span>
+                </div>
+                <div class="docente-details">
+                    <span><strong>DNI:</strong> 34567890</span>
+                    <span><strong>Edad:</strong> 40 años</span>
+                    <span><i class="bi bi-envelope"></i> Administrativo@gmail.com</span>
+                    <span><i class="bi bi-phone"></i> 999 000 999</span>
+                </div>
+            </div>
+            <div class="docente-actions">
+                <button class="action-btn" title="Ver">
+                    <i class="bi bi-eye"></i>
+                </button>
+                <button class="action-btn active" title="Activo">
+                    Activo
+                </button>
+                <button class="action-btn" title="Editar">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="action-btn" title="Eliminar">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DE REGISTRO -->
+<div class="modal-overlay" id="modalRegistrar">
+    <div class="modal-container">
+        <!-- Header -->
+        <div class="modal-header-custom">
+            <div>
+                <h3>Registrar Nuevo Personal</h3>
+                <span class="subtitle-modal">Complete los datos del nuevo personal.</span>
+            </div>
+            <button class="close-btn" onclick="closeModal()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body-custom">
+           <form id="formRegistrar">
+    
+        <!-- FILA 1:-->
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">
+                    Nombres <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="nombres" placeholder="Ingrese nombres" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">
+                    Apellidos <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="apellidos" placeholder="Ingrese apellidos" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">
+                    DNI <span class="required">*</span>
+                </label>
+                <input type="text" class="form-input" name="dni" placeholder="12345678" maxlength="8" pattern="[0-9]{8}" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">
+                    Fecha de Nacimiento <span class="required">*</span>
+                </label>
+                <input type="date" class="form-input" name="fechaNacimiento" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">
+                Género <span class="required">*</span>
+            </label>
+            <select class="form-select" name="genero" required>
+                <option value="">Seleccione género</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">
+                    Celular <span class="required">*</span>
+                </label>
+                <input type="tel" class="form-input" name="celular" placeholder="999 000 999" maxlength="9" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">
+                    Correo Electrónico <span class="required">*</span>
+                </label>
+                <input type="email" class="form-input" name="email" placeholder="ejemplo@correo.com" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">
+                    Rol
+                </label>
+                <select class="form-select" name="medioConocimiento">
+                    <option value="">Seleccione una opción</option>
+                    <option value="Facebook">Docente</option>
+                    <option value="Instagram">Administrador</option>
+                    <option value="Google">Coordinador</option>
+
+                </select>
+            </div>
+        </div>
+
+    </form>
+
+        <!-- Footer -->
+        <div class="modal-footer-custom">
+            <button class="btn-cancel" type="button" onclick="closeModal()">
+                Cancelar
+            </button>
+            <button class="btn-submit" type="button" onclick="submitForm()">
+                <i class="bi bi-check-circle"></i>
+                Registrar Personal
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="notification-container" id="notificationContainer"></div>
