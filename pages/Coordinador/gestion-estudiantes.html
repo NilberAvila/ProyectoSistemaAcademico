@@ -1,0 +1,131 @@
+<div class="container-fluid py-4">
+    <!-- Header -->
+    <div class="mb-4">
+        <h2 class="fw-bold mb-2">Gestión Estudiantes</h2>
+        <p class="text-muted">Inscribir estudiantes en grupos de cursos</p>
+    </div>
+
+    <!-- Cards de Estadísticas -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-small">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="stat-label-small mb-1">Total Matriculados</p>
+                        <h3 class="stat-value-small mb-0">7</h3>
+                    </div>
+                    <div class="stat-icon-small">
+                        <i class="bi bi-people"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-small">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="stat-label-small mb-1">Grupos Activos</p>
+                        <h3 class="stat-value-small mb-0">5</h3>
+                    </div>
+                    <div class="stat-icon-small">
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-small">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="stat-label-small mb-1">Cupos Ocupados</p>
+                        <h3 class="stat-value-small mb-0">128</h3>
+                    </div>
+                    <div class="stat-icon-small">
+                        <i class="bi bi-clipboard-check"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-small">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="stat-label-small mb-1">Cupos Disponibles</p>
+                        <h3 class="stat-value-small mb-0">32</h3>
+                    </div>
+                    <div class="stat-icon-small">
+                        <i class="bi bi-patch-check"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra de Búsqueda y Filtros -->
+    <div class="card border-0 shadow-sm mb-3">
+        <div class="card-body p-3">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="bi bi-search"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0 ps-0" 
+                               placeholder="Buscar estudiante o grupo..." id="searchInput">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <select class="form-select" id="filterCurso">
+                        <option value="">Todos los cursos</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lista de Cursos con Grupos -->
+    <div id="estudiantesListContainer">
+        <!-- Los grupos se cargarán aquí dinámicamente -->
+    </div>
+</div>
+
+<!-- Modal Matricular Estudiante -->
+<div class="modal fade" id="modalMatricularEstudiante" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Matricular Estudiante</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formMatricularEstudiante">
+                    <input type="hidden" id="grupoIdMatricula">
+                    <div class="mb-3">
+                        <label class="form-label">Curso y Grupo</label>
+                        <input type="text" class="form-control" id="cursoGrupoInfo" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Buscar Estudiante</label>
+                        <input type="text" class="form-control" id="buscarEstudiante" 
+                               placeholder="Ingrese nombre o matrícula...">
+                    </div>
+                    <div class="mb-3" id="resultadosBusqueda" style="display: none;">
+                        <label class="form-label">Seleccionar Estudiante:</label>
+                        <div class="list-group" id="listaEstudiantes">
+                            <!-- Resultados de búsqueda -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="confirmarMatricula()" id="btnConfirmarMatricula" disabled>
+                    Matricular
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

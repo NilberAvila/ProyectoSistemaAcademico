@@ -1,0 +1,200 @@
+<div class="container-fluid py-4">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-start mb-4">
+        <div>
+            <h2 class="fw-bold mb-2">Horarios</h2>
+            <p class="text-muted mb-0">Configurar horarios de cursos</p>
+        </div>
+        <button class="btn btn-danger" onclick="abrirModalNuevoHorario()">
+            <i class="bi bi-plus-circle me-2"></i>Nuevo Horario
+        </button>
+    </div>
+
+    <!-- Cards de Estadísticas -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-horarios">
+                <p class="stat-label-horarios mb-1">Total Horarios</p>
+                <h3 class="stat-value-horarios mb-0">6</h3>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-horarios">
+                <p class="stat-label-horarios mb-1">Cursos con Horario</p>
+                <h3 class="stat-value-horarios mb-0">3</h3>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-horarios">
+                <p class="stat-label-horarios mb-1">Aulas Utilizadas</p>
+                <h3 class="stat-value-horarios mb-0">3</h3>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="stat-card-horarios">
+                <p class="stat-label-horarios mb-1">Docentes Activos</p>
+                <h3 class="stat-value-horarios mb-0">3</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lista de Horarios -->
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+            <h5 class="fw-bold mb-4">Lista de Horarios</h5>
+            
+            <div id="horariosListContainer">
+                <!-- Los horarios se cargarán aquí dinámicamente -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Nuevo Horario -->
+<div class="modal fade" id="modalNuevoHorario" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Nuevo Horario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formNuevoHorario">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Curso</label>
+                            <select class="form-select" id="selectCurso" required>
+                                <option value="">Seleccionar curso...</option>
+                                <option value="DW-001">DW-001 - Desarrollo Web</option>
+                                <option value="BD-002">BD-002 - Base de Datos</option>
+                                <option value="FIS-005">FIS-005 - Física</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Grupo</label>
+                            <select class="form-select" id="selectGrupo" required>
+                                <option value="">Seleccionar grupo...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Docente</label>
+                            <select class="form-select" required>
+                                <option value="">Seleccionar docente...</option>
+                                <option>Nombre Docente 1</option>
+                                <option>Nombre Docente 2</option>
+                                <option>Nombre Docente 3</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Aula</label>
+                            <input type="text" class="form-control" placeholder="Ej: Aula A-101" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Día de la Semana</label>
+                            <select class="form-select" required>
+                                <option value="">Seleccionar...</option>
+                                <option>Lunes</option>
+                                <option>Martes</option>
+                                <option>Miércoles</option>
+                                <option>Jueves</option>
+                                <option>Viernes</option>
+                                <option>Sábado</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Turno</label>
+                            <select class="form-select" required>
+                                <option value="">Seleccionar...</option>
+                                <option>Mañana</option>
+                                <option>Tarde</option>
+                                <option>Noche</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Duración (horas)</label>
+                            <input type="number" class="form-control" placeholder="2" min="1" max="8" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Hora Inicio</label>
+                            <input type="time" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Hora Fin</label>
+                            <input type="time" class="form-control" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarHorario()">Guardar Horario</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Editar Horario -->
+<div class="modal fade" id="modalEditarHorario" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Editar Horario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formEditarHorario">
+                    <!-- Mismo contenido que el formulario de nuevo horario -->
+                    <input type="hidden" id="editHorarioId">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Curso</label>
+                            <input type="text" class="form-control" id="editCurso" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Docente</label>
+                            <select class="form-select" id="editDocente" required>
+                                <option>Nombre Docente 1</option>
+                                <option>Nombre Docente 2</option>
+                                <option>Nombre Docente 3</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Aula</label>
+                            <input type="text" class="form-control" id="editAula" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Día de la Semana</label>
+                            <select class="form-select" id="editDia" required>
+                                <option>Lunes</option>
+                                <option>Martes</option>
+                                <option>Miércoles</option>
+                                <option>Jueves</option>
+                                <option>Viernes</option>
+                                <option>Sábado</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Turno</label>
+                            <select class="form-select" id="editTurno" required>
+                                <option>Mañana</option>
+                                <option>Tarde</option>
+                                <option>Noche</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Duración (horas)</label>
+                            <input type="number" class="form-control" id="editDuracion" min="1" max="8" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="actualizarHorario()">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
