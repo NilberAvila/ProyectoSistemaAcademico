@@ -12,6 +12,7 @@ function loadView(viewPath) {
     fetch(viewPath)
         .then(response => {
             if (!response.ok) {
+                // Si la ruta es incorrecta (404), lanzamos un error
                 throw new Error(`HTTP error! status: ${response.status} para ${viewPath}`);
             }
             return response.text();
