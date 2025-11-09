@@ -1,318 +1,202 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle del Curso - Aula Virtual</title>
-    <link rel="stylesheet" href="/css/panel.css">
-    <link rel="stylesheet" href="/css/detalle-curso-docente.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-</head>
-<body>
-    <div class="detalle-curso-container">
-        <!-- Header con botón volver -->
-        <div class="curso-header-nav">
-            <a href="#" class="btn-volver" onclick="history.back(); return false;">
-                <i class="bi bi-arrow-left"></i>
-                <span>Volver a Cursos</span>
-            </a>
-        </div>
+<div class="container py-4">
+    <!-- Header con botón volver -->
+    <div class="d-flex align-items-center mb-4">
+        <button class="btn btn-link text-decoration-none text-dark p-0 me-3" id="btnVolverCursos">
+            <i class="bi bi-arrow-left fs-4"></i> Volver a Cursos
+        </button>
+    </div>
 
-        <!-- Título del curso y stats -->
-        <div class="curso-title-section">
-            <div>
-                <h1 class="curso-title">Matemática - 1001</h1>
-                <p class="curso-subtitle">Gestiona el contenido de este curso-aula</p>
-            </div>
-            <div class="curso-stats">
-                <div class="stat-box">
-                    <i class="bi bi-people"></i>
-                    <div>
-                        <span class="stat-label">Estudiantes</span>
-                        <span class="stat-value">5</span>
+    <!-- Información del Curso -->
+    <div class="row mb-4">
+        <div class="col-lg-8">
+            <h2 class="fw-bold mb-2" id="cursoTitulo">Cargando...</h2>
+            <p class="text-muted" id="cursoDescripcion">Gestiona el contenido de este curso-aula</p>
+        </div>
+        <div class="col-lg-4">
+            <div class="row g-3">
+                <div class="col-6">
+                    <div class="dashboard-card p-3 text-center">
+                        <i class="bi bi-people fs-4 text-primary mb-2"></i>
+                        <h6 class="mb-0">Estudiantes</h6>
+                        <h3 class="fw-bold mb-0" id="cursoEstudiantes">0</h3>
                     </div>
                 </div>
-                <div class="stat-box">
-                    <i class="bi bi-file-text"></i>
-                    <div>
-                        <span class="stat-label">Materiales</span>
-                        <span class="stat-value">4</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Info cards (Horario, Promedio, Asistencia, ID) -->
-        <div class="curso-info-grid">
-            <div class="info-item">
-                <span class="info-label">Horario</span>
-                <span class="info-value">Lun y Mié 10:00-12:00</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Promedio General</span>
-                <span class="info-value">150</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Asistencia</span>
-                <span class="info-value">92%</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">ID del Curso</span>
-                <span class="info-value">1001</span>
-            </div>
-        </div>
-
-        <!-- Tabs Navigation -->
-        <div class="curso-tabs">
-            <button class="tab-btn active" data-tab="materiales">
-                Material del Curso
-            </button>
-            <button class="tab-btn" data-tab="estudiantes">
-                Estudiantes
-            </button>
-        </div>
-
-        <!-- Tab Content: Materiales -->
-        <div class="tab-content active" id="tab-materiales">
-            <div class="materiales-section">
-                <div class="materiales-header">
-                    <h3 class="materiales-title">Materiales del Curso</h3>
-                    <button class="btn-subir-material" onclick="abrirModal()">
-                        <i class="bi bi-upload"></i>
-                        <span>Subir Material</span>
-                    </button>
-                </div>
-
-                <!-- Grid de materiales (2 columnas) -->
-                <div class="materiales-grid">
-                    <!-- Material 1 -->
-                    <div class="material-card">
-                        <div class="material-info">
-                            <i class="bi bi-file-earmark-text material-icon"></i>
-                            <div class="material-details">
-                                <div class="material-meta">
-                                    <span class="badge-pdf">PDF</span>
-                                    <span class="material-size">2.5 MB</span>
-                                </div>
-                                <h4 class="material-name">Iniciación a la matemática universitaria</h4>
-                                <p class="material-date">Subido: 30/9/2025</p>
-                            </div>
-                        </div>
-                        <div class="material-actions">
-                            <button class="btn-icon-action" title="Descargar">
-                                <i class="bi bi-download"></i>
-                            </button>
-                            <button class="btn-icon-action btn-delete" title="Eliminar">
-                                <i class="bi bi-x-lg"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Material 2 -->
-                    <div class="material-card">
-                        <div class="material-info">
-                            <i class="bi bi-file-earmark-text material-icon"></i>
-                            <div class="material-details">
-                                <div class="material-meta">
-                                    <span class="badge-pdf">PDF</span>
-                                    <span class="material-size">2.5 MB</span>
-                                </div>
-                                <h4 class="material-name">Manual para la Matemática Universitaria</h4>
-                                <p class="material-date">Subido: 30/9/2025</p>
-                            </div>
-                        </div>
-                        <div class="material-actions">
-                            <button class="btn-icon-action" title="Descargar">
-                                <i class="bi bi-download"></i>
-                            </button>
-                            <button class="btn-icon-action btn-delete" title="Eliminar">
-                                <i class="bi bi-x-lg"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Material 3 -->
-                    <div class="material-card">
-                        <div class="material-info">
-                            <i class="bi bi-file-earmark-text material-icon"></i>
-                            <div class="material-details">
-                                <div class="material-meta">
-                                    <span class="badge-ppt">PPT</span>
-                                    <span class="material-size">5.2 MB</span>
-                                </div>
-                                <h4 class="material-name">Matemáticas empresariales</h4>
-                                <p class="material-date">Subido: 4/10/2025</p>
-                            </div>
-                        </div>
-                        <div class="material-actions">
-                            <button class="btn-icon-action" title="Descargar">
-                                <i class="bi bi-download"></i>
-                            </button>
-                            <button class="btn-icon-action btn-delete" title="Eliminar">
-                                <i class="bi bi-x-lg"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Material 4 -->
-                    <div class="material-card">
-                        <div class="material-info">
-                            <i class="bi bi-file-earmark-text material-icon"></i>
-                            <div class="material-details">
-                                <div class="material-meta">
-                                    <span class="badge-pdf">PDF</span>
-                                    <span class="material-size">2.5 MB</span>
-                                </div>
-                                <h4 class="material-name">Programación matemática</h4>
-                                <p class="material-date">Subido: 30/9/2025</p>
-                            </div>
-                        </div>
-                        <div class="material-actions">
-                            <button class="btn-icon-action" title="Descargar">
-                                <i class="bi bi-download"></i>
-                            </button>
-                            <button class="btn-icon-action btn-delete" title="Eliminar">
-                                <i class="bi bi-x-lg"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tab Content: Estudiantes (oculto inicialmente) -->
-        <div class="tab-content" id="tab-estudiantes">
-            <div class="estudiantes-section">
-                <div class="estudiantes-list">
-                    <!-- Estudiante 1 -->
-                    <div class="estudiante-card d-flex align-items-center justify-content-between p-3 mb-3">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="estudiante-avatar">NE</div>
-                            <div>
-                                <div class="estudiante-name">Nombre Estudiante 1</div>
-                                <div class="estudiante-mail text-muted small">estudiante1@email.com</div>
-                                <div class="estudiante-meta text-muted small">Inscrito: 31/8/2025</div>
-                            </div>
-                        </div>
-                        <div class="estudiante-actions d-flex align-items-center gap-3">
-                            <span class="badge badge-activo">Activo</span>
-                        </div>
-                    </div>
-
-                    <!-- Estudiante 2 -->
-                    <div class="estudiante-card d-flex align-items-center justify-content-between p-3 mb-3">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="estudiante-avatar">MS</div>
-                            <div>
-                                <div class="estudiante-name">Nombre Estudiante 2</div>
-                                <div class="estudiante-mail text-muted small">estudiante2@email.com</div>
-                                <div class="estudiante-meta text-muted small">Inscrito: 31/8/2025</div>
-                            </div>
-                        </div>
-                        <div class="estudiante-actions d-flex align-items-center gap-3">
-                            <span class="badge badge-activo">Activo</span>
-                        </div>
-                    </div>
-
-                    <!-- Estudiante 3 -->
-                    <div class="estudiante-card d-flex align-items-center justify-content-between p-3 mb-3">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="estudiante-avatar">JC</div>
-                            <div>
-                                <div class="estudiante-name">Nombre Estudiante 3</div>
-                                <div class="estudiante-mail text-muted small">estudiante3@email.com</div>
-                                <div class="estudiante-meta text-muted small">Inscrito: 31/8/2025</div>
-                            </div>
-                        </div>
-                        <div class="estudiante-actions d-flex align-items-center gap-3">
-                            <span class="badge badge-activo">Activo</span>
-                        </div>
-                    </div>
-
-                    <!-- Estudiante 4 -->
-                    <div class="estudiante-card d-flex align-items-center justify-content-between p-3 mb-3">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="estudiante-avatar">AP</div>
-                            <div>
-                                <div class="estudiante-name">Nombre Estudiante 4</div>
-                                <div class="estudiante-mail text-muted small">estudiante4@email.com</div>
-                                <div class="estudiante-meta text-muted small">Inscrito: 31/8/2025</div>
-                            </div>
-                        </div>
-                        <div class="estudiante-actions d-flex align-items-center gap-3">
-                            <span class="badge badge-activo">Activo</span>
-                        </div>
-                    </div>
-
-                    <!-- Estudiante 5 -->
-                    <div class="estudiante-card d-flex align-items-center justify-content-between p-3 mb-3">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="estudiante-avatar">LM</div>
-                            <div>
-                                <div class="estudiante-name">Nombre Estudiante 5</div>
-                                <div class="estudiante-mail text-muted small">estudiante5@email.com</div>
-                                <div class="estudiante-meta text-muted small">Inscrito: 31/8/2025</div>
-                            </div>
-                        </div>
-                        <div class="estudiante-actions d-flex align-items-center gap-3">
-                            <span class="badge badge-activo">Activo</span>
-                        </div>
+                <div class="col-6">
+                    <div class="dashboard-card p-3 text-center">
+                        <i class="bi bi-file-text fs-4 text-danger mb-2"></i>
+                        <h6 class="mb-0">Materiales</h6>
+                        <h3 class="fw-bold mb-0" id="cursoMateriales">0</h3>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal: Subir material -->
-    <div class="modal-overlay" id="modalSubirMaterial">
-        <div class="modal-content-custom">
-            <div class="modal-header-custom">
-                <h3>Subir Nuevo Material</h3>
-                <button class="btn-close-custom" onclick="cerrarModal()">&times;</button>
+    <!-- Información Adicional del Curso -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="info-item">
+                <small class="text-muted d-block">Horario</small>
+                <span class="fw-semibold" id="cursoHorario">-</span>
             </div>
-
-            <div class="modal-body-custom">
-
-                <!-- Título del Material -->
-                <div class="form-section">
-                    <label class="form-label-custom">Título del Material</label>
-                    <input type="text" class="input-custom" placeholder="Ingrese el título del material">
-                </div>
-
-                <!-- Tipo de Material -->
-                <div class="form-section">
-                    <label class="form-label-custom">Tipo de Material</label>
-                    <div class="tipo-material-group">
-                        <button class="btn-tipo-material active" data-tipo="pdf">PDF</button>
-                        <button class="btn-tipo-material" data-tipo="video">Video</button>
-                        <button class="btn-tipo-material" data-tipo="ppt">PPT</button>
-                        <button class="btn-tipo-material" data-tipo="word">Word</button>
-                        <button class="btn-tipo-material" data-tipo="excel">Excel</button>
-                    </div>
-                </div>
-
-                <!-- Área de carga de archivo -->
-                <div class="form-section">
-                    <label class="form-label-custom">Archivo</label>
-                    <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
-                        <i class="bi bi-cloud-upload" style="font-size: 2rem; color: #6c757d; margin-bottom: 0.5rem;"></i>
-                        <p>Arrastra un archivo o haz clic para seleccionar</p>
-                        <small>Tamaño máximo: 500 MB</small>
-                    </div>
-                    <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.mp4,.avi" style="display: none;">
-                </div>
+        </div>
+        <div class="col-md-3">
+            <div class="info-item">
+                <small class="text-muted d-block">Promedio General</small>
+                <span class="fw-semibold" id="cursoPromedio">-</span>
             </div>
-
-            <div class="modal-footer-custom">
-                <button class="btn-custom btn-cancelar" onclick="cerrarModal()">Cancelar</button>
-                <button class="btn-custom btn-subir" onclick="subirMaterial()">Subir Material</button>
+        </div>
+        <div class="col-md-3">
+            <div class="info-item">
+                <small class="text-muted d-block">Asistencia</small>
+                <span class="fw-semibold" id="cursoAsistencia">-</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="info-item">
+                <small class="text-muted d-block">ID del Curso</small>
+                <span class="fw-semibold" id="cursoCodigo">-</span>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="/js/detalle-cursos-docente.js"></script>
-</body>
-</html>
+    <!-- Tabs Personalizados -->
+    <div class="custom-tabs mb-4">
+        <button class="custom-tab active" data-tab="materiales">Material del Curso</button>
+        <button class="custom-tab" data-tab="estudiantes">Estudiantes</button>
+    </div>
+
+    <!-- Contenido de Tabs -->
+    <div class="tab-contents">
+        <!-- Tab: Material del Curso -->
+        <div class="tab-content-item active" id="tab-materiales">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="fw-bold mb-0">Materiales del Curso</h5>
+                <button class="btn btn-danger" id="btnSubirMaterial">
+                    <i class="bi bi-upload me-2"></i>Subir Material
+                </button>
+            </div>
+
+            <!-- Lista de Materiales -->
+            <div class="row g-3" id="materialesList">
+                <!-- Los materiales se cargarán aquí -->
+            </div>
+
+            <!-- Mensaje cuando no hay materiales -->
+            <div class="text-center py-5 d-none" id="noMaterialesMsg">
+                <i class="bi bi-folder2-open fs-1 text-muted mb-3"></i>
+                <p class="text-muted">No hay materiales subidos aún</p>
+                <button class="btn btn-danger btn-sm" id="btnSubirPrimerMaterial">
+                    <i class="bi bi-upload me-2"></i>Subir Primer Material
+                </button>
+            </div>
+        </div>
+
+        <!-- Tab: Estudiantes -->
+        <div class="tab-content-item" id="tab-estudiantes">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="fw-bold mb-0">Lista de Estudiantes</h5>
+                <div class="input-group" style="max-width: 300px;">
+                    <span class="input-group-text bg-white">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Buscar estudiante..." id="searchEstudiante">
+                </div>
+            </div>
+
+            <!-- Lista de Estudiantes -->
+            <div class="row g-3" id="estudiantesList">
+                <!-- Los estudiantes se cargarán aquí -->
+            </div>
+
+            <!-- Mensaje cuando no hay estudiantes -->
+            <div class="text-center py-5 d-none" id="noEstudiantesMsg">
+                <i class="bi bi-people fs-1 text-muted mb-3"></i>
+                <p class="text-muted">No hay estudiantes matriculados en este curso</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Subir Material -->
+<div class="modal fade" id="modalSubirMaterial" tabindex="-1" aria-labelledby="modalSubirMaterialLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-danger" id="modalSubirMaterialLabel">
+                    Subir Nuevo Material
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-4">
+                <form id="formSubirMaterial">
+                    <!-- Nombre del Curso (Read-only) -->
+                    <div class="mb-3">
+                        <label class="form-label text-muted small">Nombre del curso</label>
+                        <input type="text" class="form-control" id="nombreCursoModal" readonly>
+                    </div>
+
+                    <!-- Título del Material -->
+                    <div class="mb-3">
+                        <label for="tituloMaterial" class="form-label fw-semibold">Título del Material</label>
+                        <input type="text" class="form-control" id="tituloMaterial" placeholder="Ej: Guía de estudio..." required>
+                    </div>
+
+                    <!-- Tipo de Material -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Tipo de Material</label>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <input type="radio" class="btn-check" name="tipoMaterial" id="tipoPDF" value="PDF" checked>
+                            <label class="btn btn-outline-danger rounded-pill px-4" for="tipoPDF">PDF</label>
+
+                            <input type="radio" class="btn-check" name="tipoMaterial" id="tipoVideo" value="VIDEO">
+                            <label class="btn btn-outline-danger rounded-pill px-4" for="tipoVideo">Video</label>
+
+                            <input type="radio" class="btn-check" name="tipoMaterial" id="tipoPPT" value="PPT">
+                            <label class="btn btn-outline-danger rounded-pill px-4" for="tipoPPT">PPT</label>
+
+                            <input type="radio" class="btn-check" name="tipoMaterial" id="tipoWord" value="WORD">
+                            <label class="btn btn-outline-danger rounded-pill px-4" for="tipoWord">Word</label>
+
+                            <input type="radio" class="btn-check" name="tipoMaterial" id="tipoExcel" value="EXCEL">
+                            <label class="btn btn-outline-danger rounded-pill px-4" for="tipoExcel">Excel</label>
+                        </div>
+                    </div>
+
+                    <!-- Área de Archivo -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Archivo</label>
+                        <div class="upload-area" id="uploadArea">
+                            <input type="file" class="d-none" id="archivoMaterial" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.mp4,.avi,.mov">
+                            <div class="upload-placeholder text-center py-5">
+                                <i class="bi bi-cloud-upload fs-1 text-muted mb-3 d-block"></i>
+                                <p class="text-muted mb-1">Arrastra un archivo o haz clic para seleccionar</p>
+                                <small class="text-muted">Tamaño máximo: 500 MB</small>
+                            </div>
+                            <div class="upload-preview d-none" id="uploadPreview">
+                                <div class="d-flex align-items-center justify-content-between p-3">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-file-earmark fs-2 text-danger me-3"></i>
+                                        <div>
+                                            <p class="mb-0 fw-semibold" id="nombreArchivo"></p>
+                                            <small class="text-muted" id="tamanoArchivo"></small>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-sm btn-outline-danger" id="btnRemoverArchivo">
+                                        <i class="bi bi-x-lg"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-0 px-4 pb-4">
+                <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger px-4" id="btnConfirmarSubir">
+                    <i class="bi bi-upload me-2"></i>Subir Material
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

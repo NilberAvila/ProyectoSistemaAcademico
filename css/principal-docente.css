@@ -5,137 +5,182 @@
     background-color: #0F172B;
 }
 
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+}
+
 .modal-content-custom {
-    background: rgb(97, 65, 65);
-    border-radius: 16px;
+    background: white;
+    border-radius: 12px;
     width: 90%;
-    max-width: 650px;
+    max-width: 520px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: modalSlideIn 0.3s ease-out;
     max-height: 90vh;
     overflow-y: auto;
-    position: relative;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .modal-header-custom {
-    padding: 24px 32px;
+    padding: 24px 24px 16px;
     border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .modal-header-custom h3 {
-    color: #dc2626;
-    font-size: 24px;
-    font-weight: 700;
     margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #e41e26;
 }
 
 .btn-close-custom {
-    position: absolute;
-    top: 20px;
-    right: 24px;
     background: none;
     border: none;
     font-size: 28px;
     color: #6b7280;
     cursor: pointer;
-    line-height: 1;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all 0.2s;
 }
 
 .btn-close-custom:hover {
+    background: #f3f4f6;
     color: #374151;
 }
 
 .modal-body-custom {
-    padding: 24px 32px;
-}
-
-.form-label-custom {
-    color: #6b7280;
-    font-size: 14px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    display: block;
+    padding: 24px;
 }
 
 .form-section {
     margin-bottom: 24px;
 }
 
+.form-section:last-child {
+    margin-bottom: 0;
+}
+
+.form-label-custom {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.select-custom,
 .input-custom {
     width: 100%;
     padding: 12px 16px;
     border: 1px solid #d1d5db;
-    border-radius: 12px;
+    border-radius: 8px;
     font-size: 14px;
-    transition: border-color 0.2s;
+    transition: all 0.2s;
+    background: white;
 }
 
+.select-custom:focus,
 .input-custom:focus {
     outline: none;
-    border-color: #dc2626;
+    border-color: #e41e26;
+    box-shadow: 0 0 0 3px rgba(228, 30, 38, 0.1);
 }
 
 .select-custom {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #d1d5db;
-    border-radius: 12px;
-    font-size: 14px;
-    background-color: white;
     cursor: pointer;
-    transition: border-color 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 40px;
 }
 
-.select-custom:focus {
-    outline: none;
-    border-color: #dc2626;
+.input-custom::placeholder {
+    color: #9ca3af;
 }
 
+/* Botones de Tipo de Material */
 .tipo-material-group {
     display: flex;
-    gap: 12px;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
 .btn-tipo-material {
-    padding: 12px 24px;
+    padding: 10px 20px;
     border: 2px solid #d1d5db;
-    border-radius: 12px;
     background: white;
-    color: #374151;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 14px;
     font-weight: 500;
+    color: #374151;
     cursor: pointer;
     transition: all 0.2s;
+    flex: 0 0 auto;
 }
 
 .btn-tipo-material:hover {
-    border-color: #dc2626;
-    color: #dc2626;
+    border-color: #e41e26;
+    color: #e41e26;
+    background: #fef2f2;
 }
 
 .btn-tipo-material.active {
-    background-color: #dc2626;
-    border-color: #dc2626;
+    background: #e41e26;
     color: white;
+    border-color: #e41e26;
 }
 
+/* Área de Subida de Archivos */
 .file-upload-area {
     border: 2px dashed #d1d5db;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 48px 24px;
     text-align: center;
     cursor: pointer;
     transition: all 0.2s;
+    background: #f9fafb;
 }
 
 .file-upload-area:hover {
-    border-color: #dc2626;
-    background-color: #fef2f2;
+    border-color: #e41e26;
+    background: #fef2f2;
 }
 
 .file-upload-area p {
-    color: #6b7280;
-    font-size: 15px;
-    margin-bottom: 4px;
+    margin: 0 0 4px;
+    font-size: 14px;
+    color: #374151;
+    font-weight: 500;
 }
 
 .file-upload-area small {
@@ -143,45 +188,77 @@
     font-size: 13px;
 }
 
+.file-upload-area.has-file {
+    border-style: solid;
+    border-color: #10b981;
+    background: #f0fdf4;
+}
+
+.file-upload-area.has-file p {
+    color: #059669;
+}
+
+/* Footer del Modal */
 .modal-footer-custom {
-    padding: 20px 32px;
-    border-top: 1px solid #e5e7eb;
+    padding: 16px 24px 24px;
     display: flex;
-    justify-content: flex-end;
     gap: 12px;
+    justify-content: flex-end;
 }
 
 .btn-custom {
-    padding: 12px 28px;
-    border-radius: 12px;
-    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
-    border: 2px solid;
+    border: none;
 }
 
 .btn-cancelar {
     background: white;
-    color: #dc2626;
-    border-color: #dc2626;
+    color: #374151;
+    border: 1px solid #d1d5db;
 }
 
 .btn-cancelar:hover {
-    background-color: #fef2f2;
+    background: #f3f4f6;
 }
 
 .btn-subir {
-    background-color: #dc2626;
+    background: #e41e26;
     color: white;
-    border-color: #dc2626;
+    padding: 12px 32px;
 }
 
 .btn-subir:hover {
-    background-color: #b91c1c;
-    border-color: #b91c1c;
+    background: #c91921;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(228, 30, 38, 0.3);
 }
 
-#fileInput {
-    display: none;
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content-custom {
+        width: 95%;
+        margin: 20px;
+    }
+
+    .tipo-material-group {
+        justify-content: center;
+    }
+
+    .btn-tipo-material {
+        flex: 1 1 calc(33.333% - 8px);
+        min-width: 80px;
+    }
+
+    .modal-footer-custom {
+        flex-direction: column-reverse;
+    }
+
+    .btn-custom {
+        width: 100%;
+    }
 }

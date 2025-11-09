@@ -75,7 +75,7 @@ btnLogin.addEventListener('click', function() {
           window.location.href = '../../pages/Docentes/panel-Docentes.html';
           break;
         case 'coordinador':
-          window.location.href = '../../pages/Coordinadores/panel-Coordinador.html';
+          window.location.href = '../../pages/Coordinador/panel-Coordinador.html';
           break;
         case 'administrador':
           window.location.href = '../../pages/Administrador/panelPrincipal.html';

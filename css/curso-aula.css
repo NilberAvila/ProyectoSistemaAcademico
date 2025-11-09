@@ -1,0 +1,42 @@
+.curso-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.curso-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.course-border-top {
+    height: 4px;
+    width: 100%;
+}
+
+.course-border-blue {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+.course-border-red {
+    background: linear-gradient(90deg, #e41e26, #ef4444);
+}
+
+.course-border-green {
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.course-border-purple {
+    background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+}
+
+.curso-card h5 {
+    font-size: 1.1rem;
+    color: #1f2937;
+}
+
+.curso-card small {
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.curso-card .bi {
+    color: #6b7280;
+}

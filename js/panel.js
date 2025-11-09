@@ -41,8 +41,8 @@ function loadViewScript(viewPath) {
         '/pages/Coordinador/gestion-grupos.html': '/js/gestion-grupos.js',
         '/pages/Coordinador/gestion-estudiantes.html': '/js/gestion-estudiantes.js',
         '/pages/Coordinador/horarios.html': '/js/horarios.js',
-        '/pages/Docentes/principal.html': '/js/principal.js',
-        '/pages/Docentes/cursos-aula.html': '/js/principal.js',
+        '/pages/Docentes/principal.html': '/js/principal-docente.js',
+        '/pages/Docentes/cursos-aula.html': '/js/cursos-aula.js',
         '/pages/Docentes/detalles-curso.html': '/js/detalle-cursos-docente.js',
         '/pages/Docentes/Mensajeria.html': '/js/mensajeria.js',
         '/pages/Estudiantes/principal.html': '/js/principal.js',
@@ -60,6 +60,8 @@ function loadViewScript(viewPath) {
         script.onload = () => console.log(`✅ Script cargado: ${scriptPath}`);
         script.onerror = () => console.error(`❌ Error al cargar script: ${scriptPath}`);
         document.body.appendChild(script);
+    } else {
+        console.warn(`⚠️ No hay script definido para: ${viewPath}`);
     }
 }
 
