@@ -780,6 +780,9 @@
     .sidebar-header {
         padding: 16px;
     }
+    .conversations-sidebar {
+        width: 85%;
+    }
 
     .sidebar-header h5 {
         font-size: 1.1rem;
@@ -794,6 +797,6 @@
     }
 
     .chat-input {
-        padding: 8px 12px; /* 👈 AJUSTADO: Aún menos padding en pantallas pequeñas */
+        padding: 8px 12px;
     }
 }
