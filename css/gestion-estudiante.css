@@ -208,7 +208,7 @@
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
+@media (max-width: 650px) {
     .grupo-matricula-header {
         flex-direction: column;
         gap: 1rem;
@@ -227,5 +227,16 @@
 
     .btn-retirar {
         width: 100%;
+    }
+}
+@media (max-width: 400px) {
+    .grupo-icon-matricula {
+        display: none;
+    }
+    .curso-description{
+        display: none;
+    }
+    .curso-meta{
+        display: none;
     }
 }

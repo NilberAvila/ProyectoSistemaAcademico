@@ -163,3 +163,15 @@
         justify-content: flex-start;
     }
 }
+@media (max-width: 400px) {
+    .curso-icon {
+        display: none;
+    }
+    .curso-description{
+        display: none;
+    }
+    .curso-meta{
+        display: none;
+    }
+
+}

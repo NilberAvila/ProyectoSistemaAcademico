@@ -102,8 +102,10 @@
                     <div class="horario-info">
                         <div class="horario-header">
                             <h6 class="horario-title">${horario.curso}</h6>
-                            <span class="horario-codigo-badge">${horario.codigo}</span>
-                            <span class="horario-dia-badge">${horario.dia}</span>
+                            <div class="horario-badges">
+                                <span class="horario-codigo-badge">${horario.codigo}</span>
+                                <span class="horario-dia-badge">${horario.dia}</span>
+                            </div>
                         </div>
                         
                         <div class="horario-detalles">
