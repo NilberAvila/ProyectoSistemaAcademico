@@ -315,6 +315,8 @@
         // Recargar lista
         cargarListaConversaciones();
         cargarConversacion(id);
+        const chatArea = document.querySelector('.chat-area');
+        chatArea.style.display = 'flex';
         
         // Marcar como activo
         document.querySelector(`.conversation-item[data-chat-id="${id}"]`)?.classList.add('active');
@@ -449,6 +451,8 @@
         if (btnBack) {
             btnBack.addEventListener('click', function() {
                 document.querySelector('.messaging-container')?.classList.remove('chat-open');
+                const chatArea = document.querySelector('.chat-area');
+                chatArea.style.display = 'none';
             });
         }
 
