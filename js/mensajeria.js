@@ -76,6 +76,11 @@
     // ===============================================
 
     function cargarListaConversaciones() {
+        const isMobile = window.matchMedia("(max-width: 800px)").matches;
+        const chatArea = document.querySelector('.chat-area');
+        if (isMobile){
+            chatArea.style.display = 'none';
+        }
         const lista = document.querySelector('.conversations-list');
         if (!lista) return;
 
@@ -104,6 +109,8 @@
                 e.preventDefault();
                 const chatId = this.dataset.chatId;
                 cargarConversacion(chatId);
+                const chatArea = document.querySelector('.chat-area');
+                chatArea.style.display = 'flex';
                 
                 // Marcar como activo
                 document.querySelectorAll('.conversation-item').forEach(i => i.classList.remove('active'));
@@ -122,17 +129,11 @@
     // ===============================================
 
     function cargarConversacion(chatId) {
-        const isMobile = window.matchMedia("(max-width: 800px)").matches;
-        const chatArea = document.querySelector('.chat-area');
-        if (isMobile){
-            chatArea.style.display = 'none';
-        }
 
         const conversation = conversations[chatId];
         if (!conversation) return;
 
         currentChatId = chatId;
-        chatArea.style.display = 'flex';
         // Actualizar header del chat
         const chatHeader = document.querySelector('.chat-header-info');
         if (chatHeader) {
