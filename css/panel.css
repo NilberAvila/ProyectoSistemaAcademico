@@ -216,7 +216,8 @@
     .docente-principal .class-item::before { left: 10px; top: 10px; bottom: 10px; }
 }
 
-@media (max-width: 600px){
+@media (max-width: 800px){
+    
     .sidebar{
         width: 60px;
         transition: width 0.3s ease;

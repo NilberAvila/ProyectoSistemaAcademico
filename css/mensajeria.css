@@ -716,13 +716,14 @@
 /* ===============================================
    RESPONSIVE
    =============================================== */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .messaging-container {
         height: calc(100vh - 100px); /* 👈 AJUSTADO para móvil */
     }
 
     .conversations-sidebar {
-        width: 100%;
+        width: 90%;
+        margin-left: 60px;
         position: absolute;
         left: 0;
         top: 0;
