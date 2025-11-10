@@ -47,7 +47,9 @@ function loadViewScript(viewPath) {
         '/pages/Docentes/Mensajeria.html': '/js/mensajeria.js',
         '/pages/Estudiantes/principal.html': '/js/principal.js',
         '/pages/Estudiantes/Mensajeria.html': '/js/mensajeria.js',
-        '/pages/Estudiantes/detalles-curso.html': '/js/detalle-curso.js'
+        '/pages/Estudiantes/detalles-curso.html': '/js/detalle-curso.js',
+        '/pages/Estudiantes/Principal.html': '/js/principal-estudiante.js'
+
     };
 
     const scriptPath = scriptMap[viewPath];
