@@ -50,6 +50,10 @@ main, section, article, p, span {
     justify-content: space-between;
 }
 
+.nivel-btn {
+    text-decoration: none;
+}
+
 .logo-principal {
     width: 45px;
     height: 45px;
