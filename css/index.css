@@ -272,7 +272,8 @@ main.container-fluid .btn-matricula {
     display: flex;
     gap: 20px;
     transition: transform 0.5s ease-in-out;
-    width: max-content; /* ¡importante! hace que el scroll siga el ancho de todas las cards juntas */
+    width: max-content;
+    height: auto; /* ¡importante! hace que el scroll siga el ancho de todas las cards juntas */
 }
 
 
@@ -284,9 +285,9 @@ main.container-fluid .btn-matricula {
     flex: 0 0 500px; /* ancho fijo, no relativo */
     height: auto;
     border-radius: 20px;
-    padding: 3px;
-    background: linear-gradient(90deg, #460906, #dd2e29, #ffffff);
+    padding: 0px;
     overflow: hidden;
+    border: 1px solid #ddd;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.5s ease, transform 0.5s ease;
@@ -300,7 +301,7 @@ main.container-fluid .btn-matricula {
 
 /* efecto de hover para resaltar la card */
 .nivel-card:hover {
-    transform: translateY(-5px) scale(1.03);
+    transform: translateY(-2px) ;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
@@ -309,7 +310,7 @@ main.container-fluid .btn-matricula {
 .nivel-card .nivel-content {
     height: 350px;
     background: #fff;
-    border-radius: 17px;
+    border-radius: 0px 0px 17px 17px;
     padding: 20px;
     text-align: center;
     display: flex;
@@ -479,7 +480,6 @@ main.container-fluid .btn-matricula {
   scroll-behavior: smooth;
   padding: 20px 10px;
   scrollbar-width: none;
-  justify-content: center;
 }
 
 /* Tarjetas de equipo */
