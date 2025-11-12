@@ -20,6 +20,7 @@ const usuarios = {
   ]
 };
 
+//Cambiar a modo estudiante
 estudianteBtn.addEventListener('click', function() {
   tipoActual = 'estudiante';
   estudianteBtn.classList.add('activo');
@@ -28,6 +29,7 @@ estudianteBtn.addEventListener('click', function() {
   if (subtexto) subtexto.textContent = 'Ingrese su usuario y contraseña';
 });
 
+//Cambiar a modo personal
 personalBtn.addEventListener('click', function() {
   tipoActual = 'personal';
   personalBtn.classList.add('activo');
@@ -36,6 +38,7 @@ personalBtn.addEventListener('click', function() {
   if (subtexto) subtexto.textContent = 'Ingrese su usuario y contraseña';
 });
 
+//Manejo del login
 btnLogin.addEventListener('click', function() {
   const user = (inputUsuario && inputUsuario.value || '').trim();
   const pass = (inputContrasena && inputContrasena.value || '').trim();
@@ -54,18 +57,18 @@ btnLogin.addEventListener('click', function() {
   }
 
 
-  // --- Guardar usuario autenticado ---
+  // guardar el usuario autenticado
   const authUser = {
     role: usuarioObj.role || tipoActual,
     usuario: usuarioObj.usuario,
     nombres: usuarioObj.nombres || '',
     apellidos: usuarioObj.apellidos || ''
   };
-  sessionStorage.setItem('authUser', JSON.stringify(authUser));
+  sessionStorage.setItem('authUser', JSON.stringify(authUser));// guarda los datos mientras la pag esté abierta
 
   mostrarAlerta('Inicio de sesión exitoso', 'exito');
 
-  // --- Redirección según tipo o rol ---
+  // Redirigir según el tipo y rol
   setTimeout(() => {
     if (tipoActual === 'estudiante') {
       window.location.href = '../../pages/Estudiantes/panel-Estudiante.html';

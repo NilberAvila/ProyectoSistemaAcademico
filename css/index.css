@@ -322,7 +322,7 @@ main.container-fluid .btn-matricula {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 20px 20px 0px 0px;
 }
 
 /* ============================
@@ -460,26 +460,26 @@ main.container-fluid .btn-matricula {
   letter-spacing: 2px;
 }
 
-/* Contenedor del slider */
+
 .equipo-contenedor {
   position: relative;
   overflow: hidden;
   padding: 20px 0;
-  max-width: 1249px; /* CAMBIA ESTE VALOR para ajustar el ancho total */
-  margin: 0 auto; /* Centra el contenedor */
+  max-width: 1249px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .scroll-container-equipo {
   display: flex;
   gap: 30px;
-  overflow-x: hidden; /* Cambiado de auto a hidden */
+  overflow-x: hidden;
   scroll-behavior: smooth;
   padding: 20px 10px;
   scrollbar-width: none;
-}
-
-.scroll-container-equipo::-webkit-scrollbar {
-  display: none;
+  justify-content: center;
 }
 
 /* Tarjetas de equipo */
@@ -1499,7 +1499,7 @@ main[id] {
 /* ============================================
    MÓVILES PEQUEÑOS (menos de 480px)
 ============================================ */
-@media (max-width: 480px) {
+@media (max-width: 440px) {
     
     /* SECCIÓN CONTACTO */
     .contact-section {
@@ -1555,4 +1555,106 @@ main[id] {
         width: 18px;
         height: 18px;
     }
+}
+@media (max-width: 440px) {
+
+    .niveles-contenedor {
+        justify-content: center;
+        overflow: hidden;
+    }
+    .nivel-card {
+        flex: 0 0 280px;
+        height: auto;
+    }
+    .nivel-card .nivel-content {
+        height: auto;
+        padding: 10px;
+        border-radius: 0px 0px 20px 20px;
+    }
+    .nivel-nombre{
+        margin-top: 2px;
+    }
+
+    .nivel-card{
+        background: none;
+        padding: 0px;
+        border: solid 1px #ccc;
+        transform: none;
+        transition: all 0.7s ease;
+    }
+
+    .nivel-card.visible {
+        opacity: none  ;
+        transform: none;
+    }
+
+    .nivel-card:hover {
+        transform: none;
+        transition: none;
+        box-shadow: none;
+    }
+    .nivel-img img {
+        margin: 0px;
+        height: 150px;
+    }
+
+    .nivel-info{
+        display: none;
+    }
+    .nivel-footer{
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .nivel-precio{
+        width: 100%;
+        text-align: center;
+    }
+    .nivel-btn{
+        width: 100%;
+    }
+
+    .flecha {
+        top: 70%;
+    }
+
+   .flecha.izquierda {
+        left: 20px;
+    }
+    
+    .flecha.derecha {
+        right: 20px;
+    }
+
+    .equipo-contenedor {
+        max-width: 100%;
+        padding: 10px;
+        overflow: hidden;
+    }
+    
+    .equipo-card {
+        min-width: 240px;
+        max-width: 240px;
+        margin: 0 auto;
+
+    }
+    
+    .equipo-nombre {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+    }
+    
+    .flecha-equipo {
+        top: 60%;
+    }
+    
+    .flecha-equipo.izquierda {
+        left: 5px;
+    }
+    
+    .flecha-equipo.derecha {
+        right: 5px;
+    }
+
+
 }

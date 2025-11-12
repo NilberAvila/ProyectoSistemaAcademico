@@ -8,13 +8,13 @@
     }
 
     function applyUserToRoot(auth, root = document) {
-        if (!auth) return;
+        if (!auth) return;// no hay usuario autenticado
 
-        // Sidebar (global)
+        // Sidebar profile avatar, name and role
         const avatar = document.querySelector('.sidebar .profile-avatar');
         if (avatar) {
             let span = avatar.querySelector('span');
-            if (!span) { span = document.createElement('span'); avatar.appendChild(span); }
+            if (!span) { span = document.createElement('span'); avatar.appendChild(span); }// crear span si no existe
             span.textContent = getInitials(auth.nombres, auth.apellidos);
         }
 
@@ -23,16 +23,16 @@
 
         if (nameEl) nameEl.textContent = `${auth.nombres || ''} ${auth.apellidos || ''}`.trim() || auth.usuario;
         if (roleEl) {
-            // Map role values to friendly names
+            // Capitalizar rol
             const r = (auth.role || '').toLowerCase();
             roleEl.textContent = (r === 'docente') ? 'Docente' : (r === 'estudiante' ? 'Estudiante' : (r ? r.charAt(0).toUpperCase() + r.slice(1) : 'Usuario'));
         }
 
-        // Welcome span inside views
+        // Elemento con id welcome-user
         const welcome = (root === document ? document.getElementById('welcome-user') : root.querySelector('#welcome-user'));
         if (welcome) welcome.textContent = `${auth.nombres || ''} ${auth.apellidos || ''}`.trim() || auth.usuario;
 
-        // Any element with data-user-name
+        // Elementos con atributo data-user-name
         const nodes = (root === document ? document.querySelectorAll('[data-user-name]') : root.querySelectorAll('[data-user-name]'));
         nodes.forEach(n => n.textContent = `${auth.nombres || ''} ${auth.apellidos || ''}`.trim() || auth.usuario);
     }
@@ -40,20 +40,20 @@
     function init() {
         let auth = null;
         try {
-            const raw = sessionStorage.getItem('authUser');
-            if (!raw) return;
+            const raw = sessionStorage.getItem('authUser');// leer usuario autenticado
+            if (!raw) return; // no hay usuario en sesión
             auth = JSON.parse(raw);
-        } catch (e) {
+        } catch (e) {// error leyendo sessionStorage
             console.error('session-user: error reading sessionStorage', e);
             return;
         }
 
-        applyUserToRoot(auth, document);
+        applyUserToRoot(auth, document); // aplicar al documento actual
 
-        const main = document.getElementById('main-content');
+        const main = document.getElementById('main-content');// observar cambios en main-content
         if (!main) return;
 
-        const mo = new MutationObserver(muts => {
+        const mo = new MutationObserver(muts => {// observar inserciones de datos
             muts.forEach(m => {
                 m.addedNodes.forEach(node => {
                     if (node.nodeType !== 1) return;
@@ -66,8 +66,8 @@
         mo.observe(main, { childList: true, subtree: true });
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+    if (document.readyState === 'loading') {// DOM no cargado aún
+        document.addEventListener('DOMContentLoaded', init);// inicializar al cargar DOM
     } else {
         init();
     }

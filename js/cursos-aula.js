@@ -110,19 +110,20 @@
 
         container.innerHTML = html;
         configurarEventosCursos();
-        console.log('✅ [CURSOS-AULA] Cursos cargados:', cursosDocente.length);
+        console.log('Cursos cargados:', cursosDocente.length);
     }
 
     function configurarEventosCursos() {
         const cursoCards = document.querySelectorAll('.curso-card');
         
         cursoCards.forEach(card => {
-            // Quitar listeners anteriores
             if (card.dataset._handlerAttached) return;
             
             card.style.cursor = 'pointer';
-            card.addEventListener('click', function() {
+            card.addEventListener('click', function(e) {//evento click en la card
+                e.stopPropagation(); // Evitar que el click se propague
                 const cursoId = this.dataset.cursoId;
+                console.log('Click en curso:', cursoId);
                 navegarADetalleCurso(cursoId);
             });
             
@@ -142,15 +143,17 @@
 
     function navegarADetalleCurso(cursoId) {
         const curso = cursosDocente.find(c => c.id == cursoId);
-        console.log('📖 Navegando a curso:', curso);
-        
-        // Guardar el curso seleccionado en localStorage
+        console.log('📍 Navegando a curso:', curso);     
         localStorage.setItem('cursoSeleccionado', JSON.stringify(curso));
         
         // Navegar a la vista de detalle
-        const navLink = document.querySelector('[data-view="/pages/Docentes/detalles-curso.html"]');
-        if (navLink) {
-            navLink.click();
+        const detallePath = "/pages/Docentes/detalles-curso.html";
+        
+        if (typeof loadView === 'function') {
+            console.log('🔄 Cargando vista:', detallePath);
+            loadView(detallePath);
+        } else {
+            console.error('❌ La función loadView no está disponible');
         }
     }
 
