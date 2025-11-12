@@ -6,15 +6,75 @@
     console.log('💬 [MENSAJERIA] Script cargado');
 
     // ===============================================
-    // DATOS INICIALES
+    // DETECTAR ROL DEL USUARIO
     // ===============================================
 
-    // Conversaciones existentes
-    const conversations = {
+    function obtenerRolUsuario() {
+        // Detectar por la URL actual
+        const path = window.location.pathname;
+        if (path.includes('/Docentes/')) {
+            return 'docente';
+        } else if (path.includes('/Estudiantes/')) {
+            return 'estudiante';
+        }
+        return 'estudiante'; // Por defecto
+    }
+
+    const ROL_USUARIO = obtenerRolUsuario();
+    console.log('👤 [MENSAJERIA] Rol detectado:', ROL_USUARIO);
+
+    // ===============================================
+    // DATOS INICIALES POR ROL
+    // ===============================================
+
+    // Conversaciones para DOCENTES
+    const conversationsDocente = {
         'chat1': {
             id: 'chat1',
-            name: 'Luis Alfonoso Núñez',
-            role: 'Docente',
+            name: 'Juan Pérez García',
+            role: 'Estudiante - Matemática 001',
+            lastMessage: 'Profesor, ¿podría explicarme...',
+            time: '10:30',
+            unread: 2,
+            messages: [
+                { type: 'received', text: 'Profesor, ¿podría explicarme la tarea 5?', time: '10:25' },
+                { type: 'sent', text: 'Claro, ¿qué parte no entiendes?', time: '10:28' },
+                { type: 'received', text: 'El ejercicio 3, no comprendo el procedimiento', time: '10:30' }
+            ]
+        },
+        'chat2': {
+            id: 'chat2',
+            name: 'María López Sánchez',
+            role: 'Estudiante - Matemática 002',
+            lastMessage: 'Gracias por la explicación',
+            time: 'Ayer',
+            unread: 0,
+            messages: [
+                { type: 'received', text: '¿Cuándo es la entrega del proyecto?', time: '09:15' },
+                { type: 'sent', text: 'El próximo viernes antes de las 11:59 PM', time: '09:18' },
+                { type: 'received', text: 'Gracias por la explicación', time: '09:20' }
+            ]
+        },
+        'chat3': {
+            id: 'chat3',
+            name: 'Carlos Rodríguez Martínez',
+            role: 'Estudiante - Matemática 001',
+            lastMessage: '¿Habrá clase mañana?',
+            time: 'Hace 2 días',
+            unread: 1,
+            messages: [
+                { type: 'received', text: '¿Habrá clase mañana?', time: '14:30' },
+                { type: 'sent', text: 'Sí, la clase será normal', time: '14:45' }
+            ]
+        }
+    };
+
+    // Conversaciones para ESTUDIANTES
+    const conversationsEstudiante = {
+        'chat1': {
+            id: 'chat1',
+            name: 'Luis Alfonso Núñez',
+            role: 'Docente - Matemática',
             lastMessage: 'El proyecto se ve muy bien...',
             time: '10:30',
             unread: 2,
@@ -27,29 +87,56 @@
         'chat2': {
             id: 'chat2',
             name: 'Pancracio Gómez Velásquez',
-            role: 'Docente',
+            role: 'Docente - Geometría',
             lastMessage: 'Recuerda que el examen...',
             time: 'Ayer',
             unread: 1,
             messages: [
                 { type: 'received', text: 'Recuerda que el examen es el próximo viernes', time: '09:15' },
-                { type: 'sent', text: '¿Qué temas entraran en el examen?', time: '09:18' },
+                { type: 'sent', text: '¿Qué temas entrarán en el examen?', time: '09:18' },
                 { type: 'received', text: 'Los capítulos 1, 2 y 3 del libro principal', time: '09:20' },
                 { type: 'sent', text: 'Perfecto, muchas gracias', time: '09:22' }
+            ]
+        },
+        'chat3': {
+            id: 'chat3',
+            name: 'Ana Fernández Torres',
+            role: 'Docente - Aritmética',
+            lastMessage: 'La clase de mañana será virtual',
+            time: 'Hace 3 días',
+            unread: 0,
+            messages: [
+                { type: 'received', text: 'La clase de mañana será virtual', time: '16:00' },
+                { type: 'sent', text: 'Entendido, ¿a qué hora?', time: '16:15' },
+                { type: 'received', text: 'A las 10:00 AM por Zoom', time: '16:20' }
             ]
         }
     };
 
-    const estudiantes = [
-        { id: 'est1', name: 'Juan Pérez García', course: 'Matematica - 001' },
-        { id: 'est2', name: 'María López Sánchez', course: 'Matematica - 002' },
-        { id: 'est3', name: 'Carlos Rodríguez Martínez', course: 'Matematica - 001' },
-        { id: 'est4', name: 'Ana Fernández Torres', course: 'Matematica - 003' },
-        { id: 'est5', name: 'Pedro González Ruiz', course: 'Matematica - 001' },
+    // Seleccionar conversaciones según el rol
+    const conversations = ROL_USUARIO === 'docente' ? conversationsDocente : conversationsEstudiante;
+
+    // Lista de contactos para el modal (también varía por rol)
+    const estudiantesParaDocente = [
+        { id: 'est1', name: 'Juan Pérez García', course: 'Matemática - 001' },
+        { id: 'est2', name: 'María López Sánchez', course: 'Matemática - 002' },
+        { id: 'est3', name: 'Carlos Rodríguez Martínez', course: 'Matemática - 001' },
+        { id: 'est4', name: 'Ana Fernández Torres', course: 'Matemática - 003' },
+        { id: 'est5', name: 'Pedro González Ruiz', course: 'Matemática - 001' },
         { id: 'est6', name: 'Laura Martínez Díaz', course: 'Geometría - 004' },
         { id: 'est7', name: 'David Sánchez López', course: 'Geometría - 002' },
-        { id: 'est8', name: 'Isabel Gómez Fernández', course: 'Aritmetica - 003' }
+        { id: 'est8', name: 'Isabel Gómez Fernández', course: 'Aritmética - 003' }
     ];
+
+    const docentesParaEstudiante = [
+        { id: 'doc1', name: 'Luis Alfonso Núñez', course: 'Docente - Matemática' },
+        { id: 'doc2', name: 'Pancracio Gómez Velásquez', course: 'Docente - Geometría' },
+        { id: 'doc3', name: 'Ana Fernández Torres', course: 'Docente - Aritmética' },
+        { id: 'doc4', name: 'Roberto Silva Mora', course: 'Docente - Física' },
+        { id: 'doc5', name: 'Carmen Ruiz Vega', course: 'Docente - Química' }
+    ];
+
+    const estudiantes = ROL_USUARIO === 'docente' ? estudiantesParaDocente : docentesParaEstudiante;
 
     let currentChatId = null;
     let selectedDestinatario = null;
@@ -59,7 +146,8 @@
     // ===============================================
 
     function init() {
-        console.log('🎯 [MENSAJERIA] Inicializando');
+        console.log('🎯 [MENSAJERIA] Inicializando para rol:', ROL_USUARIO);
+        actualizarTextoModal();
         cargarListaConversaciones();
         cargarListaEstudiantes();
         configurarEventos();
@@ -68,6 +156,26 @@
         const primerChat = Object.keys(conversations)[0];
         if (primerChat) {
             cargarConversacion(primerChat);
+        }
+    }
+
+    // ===============================================
+    // ACTUALIZAR TEXTOS SEGÚN ROL
+    // ===============================================
+
+    function actualizarTextoModal() {
+        const modalTitle = document.querySelector('.modal-header-nuevo h5');
+        const searchPlaceholder = document.getElementById('searchDestinatarios');
+        const noResultsText = document.querySelector('.no-results-modal p');
+
+        if (ROL_USUARIO === 'docente') {
+            if (modalTitle) modalTitle.textContent = 'Nuevo Mensaje a Estudiante';
+            if (searchPlaceholder) searchPlaceholder.placeholder = 'Buscar estudiante...';
+            if (noResultsText) noResultsText.textContent = 'No se encontraron estudiantes';
+        } else {
+            if (modalTitle) modalTitle.textContent = 'Nuevo Mensaje a Docente';
+            if (searchPlaceholder) searchPlaceholder.placeholder = 'Buscar docente...';
+            if (noResultsText) noResultsText.textContent = 'No se encontraron docentes';
         }
     }
 
@@ -121,7 +229,7 @@
             });
         });
 
-        console.log('✅ [MENSAJERIA] Conversaciones cargadas:', Object.keys(conversations).length);
+        console.log('✅ [MENSAJERIA] Conversaciones cargadas:', Object.keys(conversations).length, '(Rol:', ROL_USUARIO + ')');
     }
 
     // ===============================================
@@ -129,7 +237,6 @@
     // ===============================================
 
     function cargarConversacion(chatId) {
-
         const conversation = conversations[chatId];
         if (!conversation) return;
 
@@ -265,7 +372,8 @@
             });
         });
 
-        console.log('✅ [MENSAJERIA] Estudiantes cargados:', estudiantes.length);
+        const tipoContacto = ROL_USUARIO === 'docente' ? 'Estudiantes' : 'Docentes';
+        console.log('✅ [MENSAJERIA]', tipoContacto, 'cargados:', estudiantes.length);
     }
 
     function abrirModalNuevo() {
@@ -511,6 +619,5 @@
         setTimeout(init, 100);
     }
 
-    console.log('✅ [MENSAJERIA] Script configurado');
-
+    console.log('✅ [MENSAJERIA] Script configurado para rol:', ROL_USUARIO);
 })();
