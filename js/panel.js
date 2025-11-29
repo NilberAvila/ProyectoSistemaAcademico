@@ -77,6 +77,11 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
         link.addEventListener('click', function(event) {
+            // Excluir el enlace de logout
+            if (this.classList.contains('logout-link')) {
+                return; // Permitir navegación normal
+            }
+            
             event.preventDefault();
             
             // Remover clase active de todos los enlaces
